@@ -1,0 +1,97 @@
+<nz-modal [(nzVisible)]="isVisible" nzCentered [nzWidth]="1100" [nzFooter]="null" (nzOnCancel)="modalCancel()">
+  <ng-container *nzModalTitle>
+    {{ 'PREFERENCES_MODAL.TITLE' | translate }}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <nz-spin [nzSpinning]="loading" style="height: 600px;" class="spin-center">
+      <div class="preferences-body-container">
+
+        <!-- menu -->
+        <div class="preferences-menu">
+          <ng-container *ngFor="let item of menuItems">
+            <div class="preferences-menu-item" [ngClass]="ngClassMenuActiveJson(item[0])"
+                 (click)="changeSelectedMenuItem(item[0])" [hidden]="item[1].hidden">
+              <i nz-icon [nzType]="item[1].icon" nzTheme="outline"
+                 class="preferences-menu-item-icon"></i>{{item[1].title | translate}}
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="preferences-menu-option-body">
+
+          <div *ngIf="selectedMenuItem === MenuItemType.PROFILE">
+            <div style="font-size: 1.1rem; font-weight: 500">
+              {{ 'PREFERENCES_MODAL.PROFILE.CHANGE_PASSWORD_TITLE' | translate }}
+            </div>
+
+            <form [formGroup]="changePasswordFormGroup" *ngIf="changePasswordFormGroup">
+
+              <div style="margin-top: 1rem">
+                <div>
+                  {{ 'PREFERENCES_MODAL.PROFILE.NEW_PASSWORD_INPUT.LABEL' | translate }}
+                </div>
+                <div>
+                  <input nz-input formControlName="newPassword"
+                         [placeholder]="'PREFERENCES_MODAL.PROFILE.NEW_PASSWORD_INPUT.PLACEHOLDER' | translate"
+                         type="password"/>
+                </div>
+              </div>
+
+              <div style="margin-top: .5rem">
+                <div>
+                  {{ 'PREFERENCES_MODAL.PROFILE.REPEAT_PASSWORD_INPUT.LABEL' | translate }}
+                </div>
+                <div>
+                  <input nz-input formControlName="repeatPassword"
+                         [placeholder]="'PREFERENCES_MODAL.PROFILE.REPEAT_PASSWORD_INPUT.PLACEHOLDER' | translate"
+                         type="password"
+                         [ngClass]="{'input-error': getMessageRepeatPasswordError() && getMessageRepeatPasswordError().length != 0}"/>
+                  <div class="message-error">
+                    <div *ngFor="let item of getMessageRepeatPasswordError()">{{ item | translate }}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; margin-top: 1rem">
+                <button nz-button nzType="primary" (click)="savePasswordOnClick()"
+                        [disabled]="!changePasswordFormGroup.valid || changePasswordFormGroup.get('newPassword').value === ''">
+                  {{ 'PREFERENCES_MODAL.PROFILE.SAVE_PASSWORD_BUTTON' | translate }}
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+          <div *ngIf="selectedMenuItem == MenuItemType.LANGUAGES">
+
+            <div style="font-size: 1.1rem; font-weight: 500">
+              {{ 'PREFERENCES_MODAL.LANGUAGES.LANGUAGE_TITLE' | translate }}
+            </div>
+
+            <div style="margin-top: 1rem">
+              <div>
+                {{ 'PREFERENCES_MODAL.LANGUAGES.LANGUAGES_INPUT.LABEL' | translate }}
+              </div>
+              <div>
+                <nz-select [nzPlaceHolder]="'PREFERENCES_MODAL.LANGUAGES.LANGUAGES_INPUT.PLACEHOLDER' | translate"
+                           style="width: 100%" [(ngModel)]="selectedLanguage" (ngModelChange)="selectedLanguageOnChange()">
+                  <nz-option *ngFor="let item of getLanguageOptions()"
+                             [nzValue]="item.customTranslate"
+                             [nzLabel]="item.translateLanguage | translate"></nz-option>
+                </nz-select>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-modal>
+
+<app-modal-info [isVisible]="isVisibleErrorModalInfo" [iconType]="iconTypeModalInfo" [iconTheme]="iconThemeModalInfo"
+                [iconTwotoneColor]="iconTwotoneColorModalInfo" [title]="titleErrorModalInfo"
+                [content]="contentErrorModalInfo"></app-modal-info>

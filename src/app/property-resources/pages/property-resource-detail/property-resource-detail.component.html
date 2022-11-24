@@ -1,0 +1,70 @@
+<div style="width: 100%; height: 100%; padding: 30px;">
+
+  <nz-spin [nzSpinning]="loading" style="height: 100%; width: 100%;" class="account-spin-detail">
+
+    <div style="flex: 0 0 auto; min-height: 0; display: flex">
+      <div class="page-title">
+        {{ 'PROPERTY_RESOURCE.DETAIL.TITLE' | translate: {name: name} }}
+      </div>
+      <div style="flex: 1 1 auto"></div>
+      <div style="flex: 0 0 auto">
+        <button ejs-button class="buttons-ejs-button" cssClass="e-primary" [disabled]="disabledOpenDoor"
+                (click)="onOpenDoorClick()">
+          {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_BUTTON' | translate }}
+        </button>
+      </div>
+    </div>
+
+
+    <div style="flex: 1 1 auto; flex-direction: column; min-height: 0; display: flex; padding: 30px 0px 40px 0px;">
+      <div style="flex: 1 1 auto; min-height: 0;">
+        <form [formGroup]="formGroup" *ngIf="formGroup">
+
+          <div class="row-form-layer-detail">
+
+            <!-- Id -->
+            <div class="column-input-form-detail">
+              <nz-form-label nzFor="id">{{'PROPERTY_RESOURCE.DETAIL.ID_INPUT.LABEL' | translate}}</nz-form-label>
+              <input nz-input formControlName="id" type="text" placeholder="Id">
+            </div>
+
+            <!-- Name -->
+            <div class="column-input-form-detail">
+              <nz-form-label nzFor="name">{{'PROPERTY_RESOURCE.DETAIL.NAME_INPUT.LABEL' | translate}}</nz-form-label>
+              <input nz-input formControlName="name" type="text"
+                     [placeholder]="'PROPERTY_RESOURCE.DETAIL.NAME_INPUT.PLACEHOLDER' | translate">
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </nz-spin>
+
+</div>
+
+<nz-modal [(nzVisible)]="isVisibleModalOpenDoor" nzCentered (nzOnCancel)="closeModalOpenDoor()">
+  <ng-container *nzModalTitle>
+    {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.TITLE' | translate }}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.NAME_INPUT.LABEL' | translate:{name: name} }}
+    </div>
+    <div style="margin-top: 0.4rem">
+      <input nz-input [placeholder]="'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.NAME_INPUT.PLACEHOLDER' | translate"
+             [(ngModel)]="nameResourceOpenDoorInput" (keyup.enter)="acceptModalOpenDoor()"/>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: .4rem">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" [disabled]="isDisabledAcceptOpenDoor()" (click)="acceptModalOpenDoor()">
+        {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.ACCEPT_BUTTON' | translate }}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="closeModalOpenDoor()">
+        {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.CANCEL_BUTTON' | translate }}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>

@@ -1,0 +1,52 @@
+<nz-modal [nzVisible]="isVisibleLogin()" nzCentered [nzClosable]="false" [nzMaskClosable]=" false" [nzFooter]="null">
+  <ng-container *nzModalContent>
+    <nz-spin [nzSpinning]="loading">
+      <div style="display:flex; flex-direction: column">
+        <div style="font-size: 1.5rem; font-weight: 600">
+          {{ 'LOGIN.TITLE' | translate }}
+        </div>
+        <div style="margin-top: 1.2rem">
+          <form [formGroup]="formGroup" (keyup.enter)="login()">
+
+            <div>
+              <div style="font-weight: 600; font-size: 1rem">{{ 'LOGIN.EMAIL_INPUT.LABEL' | translate }}</div>
+              <input nz-input nzSize="large" style="margin-top: .2rem" formControlName="email" class="input-error"
+                     [ngClass]="{'input-error': getMessageEmailError() && firstAttempt}"/>
+              <div class="message-error" *ngIf="firstAttempt">
+                <div *ngFor="let item of getMessageEmailError()">{{ item | translate }}</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem">
+              <div style="font-weight: 600; font-size: 1rem">{{ 'LOGIN.PASSWORD_INPUT.LABEL' | translate }}</div>
+              <input nz-input nzSize="large" style="margin-top: .2rem" type="password" formControlName="password"
+                     [ngClass]="{'input-error': getMessagePasswordError() && firstAttempt}"/>
+              <div class="message-error" *ngIf="firstAttempt">
+                <div *ngFor="let item of getMessagePasswordError()">{{ item | translate }}</div>
+              </div>
+            </div>
+
+          </form>
+          <div style="display: flex; flex-direction: row-reverse">
+            <div style="text-decoration: underline; color:#0000ff; cursor: pointer" (click)="onClickForgotPassword()">
+              {{ 'LOGIN.FORGOT_PASSWORD' | translate }}
+            </div>
+          </div>
+          <div style="display: flex; margin-top: 1.3rem; flex-direction: row-reverse">
+            <button ejs-button style="font-size: 1rem" cssClass="e-primary" (click)="login()"
+                    [disabled]="!formGroup.valid && firstAttempt">
+              {{ 'LOGIN.LOGIN_BUTTON' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-modal>
+
+<app-modal-info [isVisible]="isVisibleErrorModalInfo" iconType="close-circle" iconTheme="twotone"
+                iconTwotoneColor="#ff0000" [title]="titleErrorModalInfo"
+                [content]="contentErrorModalInfo"></app-modal-info>
+<app-forgot-pwd-modal [(isVisible)]="isVisibleForgotPassword"
+                      (confirmForgotPasswordEvent)="confirmForgotPasswordEvent()"
+                      (backButtonEvent)="backButtonEventForgotPwd()"></app-forgot-pwd-modal>

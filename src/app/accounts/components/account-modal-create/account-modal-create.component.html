@@ -1,0 +1,40 @@
+<nz-modal [(nzVisible)]="isVisible" nzCentered [nzMaskClosable]="false" (nzOnCancel)="close()">
+  <ng-container *nzModalTitle>
+    {{'ACCOUNT.CREATE_MODAL.TITLE' | translate}}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      <nz-spin [nzSpinning]="isLoading">
+        <form [formGroup]="formGroup" style="flex: 1 1 auto">
+
+          <div>
+            <div>
+              {{ 'ACCOUNT.CREATE_MODAL.NAME_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="name" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT.CREATE_MODAL.NAME_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT.CREATE_MODAL.DESCRIPTION_INPUT.LABEL' | translate }}
+            </div>
+            <textarea rows="3" nz-input formControlName="description"
+              [placeholder]="'ACCOUNT.CREATE_MODAL.DESCRIPTION_INPUT.PLACEHOLDER' | translate"></textarea>
+          </div>
+
+        </form>
+      </nz-spin>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: 6px;">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onAcceptButton()" [disabled]="isLoading">
+        {{'ACCOUNT.CREATE_MODAL.ACCEPT_BUTTON' | translate}}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="close()" [disabled]="isLoading">
+        {{'ACCOUNT.CREATE_MODAL.CANCEL_BUTTON' | translate}}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>

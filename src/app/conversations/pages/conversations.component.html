@@ -1,0 +1,52 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column; row-gap: 20px; padding: 30px;">
+
+  <div style="flex: 0 0 auto;">
+    <div class="page-title" style="margin: 0">
+      Conversations
+    </div>
+    <div style="display: flex;flex-direction:row;width:100%;align-items:center;justify-content:space-between">
+      <p class="page-subtitle">21 conversations unread</p>
+      <div style="display: flex; gap:20px">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select category" style="width: auto">
+          <nz-option nzValue="" nzLabel="Before arrival"></nz-option>
+          <nz-option nzValue="" nzLabel="Arrivals"></nz-option>
+          <nz-option nzValue="" nzLabel="On stay"></nz-option>
+          <nz-option nzValue="" nzLabel="After departure"></nz-option>
+        </nz-select>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="All" style="width: 150px">
+          <nz-option nzValue="" nzLabel="All"></nz-option>
+          <nz-option nzValue="" nzLabel="Unread"></nz-option>
+          <nz-option nzValue="" nzLabel="Ridden"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex: 1 1 auto;">
+    <nz-table #basicTable [nzData]="dataSet">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Message</th>
+          <th>Channel</th>
+          <th>Priority</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{data.id}}</td>
+          <td>{{data.name}}</td>
+          <td  nz-popover nzPopoverTitle="Preview" nzPopoverContent={{data.fullMessage}}>{{data.message}}</td>
+          <td>{{data.channel}}</td>
+          <td>{{data.priority}}</td>
+          <td>
+            <a>Open</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+  </div>
+</div>

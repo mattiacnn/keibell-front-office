@@ -1,0 +1,61 @@
+<nz-drawer [nzClosable]="false" [nzVisible]="isVisible" nzPlacement="right" (nzOnClose)="close()" [nzWidth]="900">
+  <ng-container *nzDrawerContent>
+    <nz-spin [nzSpinning]="isLoading" style="height: 100%; width: 100%;" class="right-drawer-spin">
+      <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
+        <div class="title-container-drawer-detail">
+          <div style="flex: 0 0 auto; min-width: 0;">{{ name }}</div>
+          <div style="flex: 1 1 auto; min-width: 0;"></div>
+          <i nz-icon nzType="close" nzTheme="outline" (click)="close()"
+             style="margin-left: 12px; flex: 0 0 auto; min-width: 0; font-size: 1.2rem; cursor: pointer;"></i>
+        </div>
+        <div style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;">
+          <div
+            style="flex: 1 1 auto; min-height: 0px; overflow: auto; padding: 24px; display: flex; flex-direction: column;">
+            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 20px; flex: 0 0 auto; min-height: 0;">
+              Datos
+            </div>
+            <form [formGroup]="formGroup" style="flex: 1 1 auto; min-height: 0;">
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'PROPERTY_CUSTOMER.SLIDE.NAME_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="name"
+                         [placeholder]="'PROPERTY_CUSTOMER.SLIDE.NAME_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'PROPERTY_CUSTOMER.SLIDE.SURNAME_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="surname"
+                         [placeholder]="'PROPERTY_CUSTOMER.SLIDE.SURNAME_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'PROPERTY_CUSTOMER.SLIDE.EMAIL_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="email"
+                         [placeholder]="'PROPERTY_CUSTOMER.SLIDE.EMAIL_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'PROPERTY_CUSTOMER.SLIDE.PHONE_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="phone"
+                         [placeholder]="'PROPERTY_CUSTOMER.SLIDE.PHONE_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+              </div>
+            </form>
+            <div style="flex: 0 0 auto; min-height: 0; justify-content: flex-end; display: flex; column-gap: 5px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-drawer>

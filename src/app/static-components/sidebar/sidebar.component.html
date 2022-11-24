@@ -1,0 +1,21 @@
+<div class="cointainer-sidebar">
+
+  <ul nz-menu nzMode="inline" style="height: 100%;">
+    <ng-container *ngFor="let submenu of sidebarStructure;">
+      <ng-container *ngTemplateOutlet="submenuTemplate; context: {item: submenu}"></ng-container>
+    </ng-container>
+    <ng-template #submenuTemplate let-item="item">
+      <li nz-submenu [(nzOpen)]="item.isOpen" (nzOpenChange)="openHandler(item)" [nzTitle]="item.label | translate"
+        [nzIcon]="item.icon" [nzPaddingLeft]="item.level * 24" *ngIf="showSubMenu(item) && item.type == 'submenu'">
+        <ng-container *ngFor="let children of item.items">
+          <ng-container *ngTemplateOutlet="submenuTemplate; context: {item: children}"></ng-container>
+        </ng-container>
+      </li>
+      <li nz-menu-item [routerLink]="item.routerLink" [nzSelected]="isSelectedItem(item)" [nzPaddingLeft]="item.level * 24"
+        [queryParams]="item.queryParams" *ngIf="item.type === 'item' && (!item.funcCondition || item.funcCondition())">
+        {{ item.label | translate }}
+      </li>
+    </ng-template>
+  </ul>
+
+</div>

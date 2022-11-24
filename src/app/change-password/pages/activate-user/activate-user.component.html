@@ -1,0 +1,60 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column;">
+  <nz-spin [nzSpinning]="loading">
+    <div style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center">
+      <div style="display: flex; justify-content: center">
+        <div style="background-color: #fff; flex: 0 0 auto; padding: 1rem; border-radius: 5px; width: 800px"
+             *ngIf="formGroup">
+          <div style="font-size: 1.5rem; font-weight: 600;">
+            {{ 'CHANGE_PWD.CHANGE_PASSWORD' | translate }}
+          </div>
+          <div style="margin-top: 1rem">
+            <form [formGroup]="formGroup" (keyup.enter)="onAcceptButton()">
+
+              <div>
+                <div>{{ 'CHANGE_PWD.NEW_PASSWORD_INPUT.LABEL' | translate }}:</div>
+                <div style="margin-top: .4rem">
+                  <input nz-input [placeholder]="'CHANGE_PWD.NEW_PASSWORD_INPUT.PLACEHOLDER' | translate"
+                         formControlName="pwd" type="password"
+                         [ngClass]="{'input-error': formGroup.errors && formGroup.errors.pwdError && firstAttemptAccept}">
+                </div>
+                <div *ngIf="formGroup.errors && formGroup.errors.pwdError && firstAttemptAccept"
+                     class="message-input-error">
+                  <div class="message-input-error" *ngFor="let item of getMessagePwdError()">
+                    {{ item | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: .8rem">
+                <div>{{ 'CHANGE_PWD.CONFIRM_PASSWORD_INPUT.LABEL' | translate }}:</div>
+                <div style="margin-top: .4rem">
+                  <input nz-input [placeholder]="'CHANGE_PWD.CONFIRM_PASSWORD_INPUT.PLACEHOLDER' | translate"
+                         formControlName="confirm_pwd" type="password"
+                         [ngClass]="{'input-error': formGroup.errors && formGroup.errors.confirmPwdError && firstAttemptAccept}">
+                </div>
+                <div class="message-input-error"
+                     *ngIf="formGroup.errors && formGroup.errors.confirmPwdError && firstAttemptAccept">
+                  <div *ngFor="let item of getMessageConfirmPwdError()">
+                    {{ item | translate }}
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <div style="margin-top: 1.5rem; display: flex; flex-direction: row-reverse">
+              <button ejs-button class="buttons-ejs-button buttons-detail-accounts" cssClass="e-primary"
+                      [disabled]="firstAttemptAccept && !formGroup.valid" (click)="onAcceptButton()">
+                {{ 'CHANGE_PWD.ACCEPT_BUTTON' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nz-spin>
+</div>
+
+<app-modal-info title="CHANGE_PWD.INVITATION_MODAL_ERROR.TITLE" content="CHANGE_PWD.INVITATION_MODAL_ERROR.CONTENT"
+                iconTheme="twotone" iconTwotoneColor="#ff0000" iconType="close-circle" [closable]="false" [(isVisible)]="isVisibleInvitationErrorModal"></app-modal-info>
+<app-modal-info title="CHANGE_PWD.CHANGE_PWD_MODAL_ERROR.TITLE" content="CHANGE_PWD.CHANGE_PWD_MODAL_ERROR.CONTENT"
+                iconTheme="twotone" iconTwotoneColor="#ff0000" iconType="close-circle" [closable]="false" [(isVisible)]="isVisibleChangePwdErrorModal"></app-modal-info>

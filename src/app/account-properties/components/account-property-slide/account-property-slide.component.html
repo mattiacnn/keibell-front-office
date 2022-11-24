@@ -1,0 +1,95 @@
+<nz-drawer [nzClosable]="false" [nzVisible]="isVisible" nzPlacement="right" (nzOnClose)="close()" [nzWidth]="900">
+  <ng-container *nzDrawerContent>
+    <nz-spin [nzSpinning]="isLoading" style="height: 100%; width: 100%;" class="right-drawer-spin">
+      <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
+        <div class="title-container">
+          <div style="flex: 0 0 auto; min-width: 0;">{{ name }}</div>
+          <div style="flex: 1 1 auto; min-width: 0;"></div>
+          <button ejs-button class="buttons-ejs-button" cssClass="e-primary"
+                  (click)="onDetailClick()">{{ 'ACCOUNT_PROPERTY.SLIDE.DETAIL_BUTTON' | translate }}</button>
+          <i nz-icon nzType="close" nzTheme="outline" (click)="close()"
+             style="margin-left: 12px; flex: 0 0 auto; min-width: 0; font-size: 1.2rem; cursor: pointer;"></i>
+        </div>
+        <div style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;">
+          <div
+            style="flex: 1 1 auto; min-height: 0px; overflow: auto; padding: 24px; display: flex; flex-direction: column;">
+            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 20px; flex: 0 0 auto; min-height: 0;">
+              Datos
+            </div>
+            <form [formGroup]="formGroup" style="flex: 1 1 auto; min-height: 0;">
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.NAME_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="name"
+                         [placeholder]="'ACCOUNT_PROPERTY.SLIDE.NAME_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.PMS_TYPE_INPUT.LABEL' | translate }}
+                  </div>
+                  <nz-select [nzPlaceHolder]="'ACCOUNT_PROPERTY.SLIDE.PMS_TYPE_INPUT.PLACEHOLDER' | translate"
+                             formControlName="pms_type" style="width: 100%">
+                    <nz-option nzValue="mews" nzLabel="mews"></nz-option>
+                  </nz-select>
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.PMS_CONNECTION_CLIENT_TOKEN_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="pms_connection_ClientToken"
+                         [placeholder]="'ACCOUNT_PROPERTY.SLIDE.PMS_CONNECTION_CLIENT_TOKEN_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.PMS_CONNECTION_ACCESS_TOKEN_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="pms_connection_AccessToken"
+                         [placeholder]="'ACCOUNT_PROPERTY.SLIDE.PMS_CONNECTION_ACCESS_TOKEN_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.LOCK_TECH_INPUT.LABEL' | translate }}
+                  </div>
+                  <nz-select [nzPlaceHolder]="'ACCOUNT_PROPERTY.SLIDE.LOCK_TECH.PLACEHOLDER' | translate"
+                             formControlName="lock_tech" style="width: 100%">
+                    <nz-option nzValue="salto_single" nzLabel="salto_single"></nz-option>
+                  </nz-select>
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.LOCK_TECH_CONNECTION_HOST_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="lock_tech_connection_host"
+                         [placeholder]="'ACCOUNT_PROPERTY.SLIDE.LOCK_TECH_CONNECTION_HOST_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+                <div style="display: flex; column-gap: 3px; align-items: center;">
+                  <div style="flex: 0 0 auto; min-width: 0;">
+                    {{ 'ACCOUNT_PROPERTY.SLIDE.LOCK_TECH_CONNECTION_PORT_INPUT.LABEL' | translate }}
+                  </div>
+                  <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="lock_tech_connection_port"
+                         [placeholder]="'ACCOUNT_PROPERTY.SLIDE.LOCK_TECH_CONNECTION_PORT_INPUT.PLACEHOLDER' | translate">
+                </div>
+
+              </div>
+            </form>
+            <div style="flex: 0 0 auto; min-height: 0; justify-content: flex-end; display: flex; column-gap: 5px;">
+              <button ejs-button class="buttons-ejs-button" cssClass="e-primary"
+                      (click)="modifyItem()">{{ 'ACCOUNT_PROPERTY.SLIDE.MODIFY_BUTTON' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-drawer>
+

@@ -1,0 +1,29 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column">
+  <nz-spin [nzSpinning]="loading">
+    <div
+      style="flex: 0 0 auto; min-height: 0; display: flex; padding: 10px 10px 10px 10px; align-items: center; background-color: #fff; border: 1px solid #EAEAEA">
+      <div>{{ 'RESERVATION.BROWSER.ACCOUNT_INPUT.LABEL' | translate }}</div>
+      <div style="margin-left: .2rem">
+        <nz-select [nzPlaceHolder]="'RESERVATION.BROWSER.ACCOUNT_INPUT.PLACEHOLDER' | translate"
+                   [(ngModel)]="accountSelected" (ngModelChange)="accountSelectedChangeEvent()">
+          <nz-option [nzValue]="item.id.toString()" [nzLabel]="item.name" *ngFor="let item of accountsList"></nz-option>
+        </nz-select>
+      </div>
+      <div style="margin-left: 1rem">{{ 'RESERVATION.BROWSER.PROPERTY_INPUT.LABEL' | translate }}</div>
+      <div style="margin-left: .2rem">
+        <nz-select [nzPlaceHolder]="'RESERVATION.BROWSER.PROPERTY_INPUT.PLACEHOLDER' | translate"
+                   [(ngModel)]="propertySelected" (ngModelChange)="propertySelectedChangeEvent()">
+          <nz-option [nzValue]="item.id.toString()" [nzLabel]="item.name"
+                     *ngFor="let item of propertiesList"></nz-option>
+        </nz-select>
+      </div>
+      <div style="flex: 1 1 auto; min-width: 0"></div>
+    </div>
+
+    <div style="flex: 1 1 auto; min-height: 0;">
+      <app-reservation-schedule (eventEmitter)="reservationScheduleEvent($event)"></app-reservation-schedule>
+    </div>
+  </nz-spin>
+
+
+</div>

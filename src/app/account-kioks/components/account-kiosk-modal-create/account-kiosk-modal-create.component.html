@@ -1,0 +1,42 @@
+<nz-modal [(nzVisible)]="isVisible" nzCentered [nzMaskClosable]="false" (nzOnCancel)="close()">
+  <ng-container *nzModalTitle>
+    {{'ACCOUNT_KIOSK.CREATE_MODAL.TITLE' | translate}}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      <nz-spin [nzSpinning]="isLoading">
+        <form [formGroup]="formGroup" style="flex: 1 1 auto">
+
+          <div>
+            <div>
+              {{ 'ACCOUNT_KIOSK.CREATE_MODAL.NAME_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="name" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_KIOSK.CREATE_MODAL.NAME_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_KIOSK.CREATE_MODAL.DESCRIPTION_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="description" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_KIOSK.CREATE_MODAL.DESCRIPTION_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+        </form>
+      </nz-spin>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: 6px;">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onAcceptButton()" [disabled]="isLoading">
+        {{'ACCOUNT_KIOSK.CREATE_MODAL.ACCEPT_BUTTON' | translate}}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="close()" [disabled]="isLoading">
+        {{'ACCOUNT_KIOSK.CREATE_MODAL.CANCEL_BUTTON' | translate}}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>
+
+

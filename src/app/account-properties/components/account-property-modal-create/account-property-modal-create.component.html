@@ -1,0 +1,82 @@
+<nz-modal [(nzVisible)]="isVisible" nzCentered [nzMaskClosable]="false" (nzOnCancel)="close()">
+  <ng-container *nzModalTitle>
+    {{'ACCOUNT_PROPERTY.CREATE_MODAL.TITLE' | translate}}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      <nz-spin [nzSpinning]="isLoading">
+        <form [formGroup]="formGroup" style="flex: 1 1 auto">
+
+          <div>
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.NAME_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="name" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PROPERTY.CREATE_MODAL.NAME_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.PMS_TYPE_INPUT.LABEL' | translate }}
+            </div>
+            <nz-select [nzPlaceHolder]="'ACCOUNT_PROPERTY.CREATE_MODAL.PMS_TYPE_INPUT.PLACEHOLDER' | translate" formControlName="pms_type" style="width: 100%">
+              <nz-option nzValue="mews" nzLabel="mews"></nz-option>
+            </nz-select>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.PMS_CONNECTION_CLIENT_TOKEN_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="pms_connection_ClientToken" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PROPERTY.CREATE_MODAL.PMS_CONNECTION_CLIENT_TOKEN_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.PMS_CONNECTION_ACCESS_TOKEN_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="pms_connection_AccessToken" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PROPERTY.CREATE_MODAL.PMS_CONNECTION_ACCESS_TOKEN_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.LOCK_TECH_INPUT.LABEL' | translate }}
+            </div>
+            <nz-select [nzPlaceHolder]="'ACCOUNT_PROPERTY.CREATE_MODAL.LOCK_TECH_INPUT.PLACEHOLDER' | translate" formControlName="lock_tech" style="width: 100%">
+              <nz-option nzValue="salto_single" nzLabel="salto_single"></nz-option>
+            </nz-select>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.LOCK_TECH_CONNECTION_HOST_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="lock_tech_connection_host" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PROPERTY.CREATE_MODAL.LOCK_TECH_CONNECTION_HOST_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PROPERTY.CREATE_MODAL.LOCK_TECH_CONNECTION_PORT_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="lock_tech_connection_port" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PROPERTY.CREATE_MODAL.LOCK_TECH_CONNECTION_PORT_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+        </form>
+      </nz-spin>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: 6px;">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onAcceptButton()" [disabled]="isLoading">
+        {{'ACCOUNT_PROPERTY.CREATE_MODAL.ACCEPT_BUTTON' | translate}}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="close()" [disabled]="isLoading">
+        {{'ACCOUNT_PROPERTY.CREATE_MODAL.CANCEL_BUTTON' | translate}}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>

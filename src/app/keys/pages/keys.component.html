@@ -1,0 +1,15 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column; row-gap: 20px; padding: 30px;">
+
+  <div style="flex: 0 0 auto;">
+    <div class="page-title">
+      {{ 'KEYS.BROWSER.TITLE' | translate }}
+    </div>
+  </div>
+
+  <div style="flex: 1 1 auto;">
+    <app-table [(loading)]="loading" [data]="dataTable" [headers]="headersTable" (clickItemEvent)="onClickItem($event)"
+      [clickItemEventAviable]="true" [buttonsHeader]="buttonsHeaderTab" [canCheckItem]="true"
+      (updatePaginationEvent)="updatePaginationEvent($event)">
+    </app-table>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "SIDEBAR": {
+        "SUBMENUS": {
+            "ADMIN_SECURITY": "Admin. security"
+        },
+        "ITEMS": {
+            "RECEPTIONIST": "Recepcionist"
+        }
+    }
+}

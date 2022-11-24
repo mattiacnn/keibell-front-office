@@ -1,0 +1,97 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column; row-gap: 20px; padding: 30px;">
+
+  <nz-spin [nzSpinning]="loading" style="height: 100%; width: 100%;" class="account-spin-detail">
+
+    <div style="flex: 0 0 auto; display: flex">
+      <div class="page-title" style="flex: 0 0 auto">
+        {{ 'RESERVATION.DETAIL.TITLE' | translate: {name: name} }}
+      </div>
+      <div style="flex: 1 1 auto"></div>
+      <div style="flex: 0 0 auto">
+        <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onClickPrintKey()">
+          {{ 'RESERVATION.DETAIL.PRINT_KEY' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div style="flex: 1 1 auto; padding: 30px 0px 40px 0px; display: flex; flex-direction: column; min-height: 0;">
+
+      <nz-tabset style="height: 100%" class="tabset-detail-reservartion" [nzSelectedIndex]="0">
+
+        <nz-tab [nzTitle]="'RESERVATION.DETAIL.GENERAL_TAB' | translate">
+          <div style="flex: 1 1 auto;">
+            <ng-container *ngIf="formGroup">
+              <form [formGroup]="formGroup">
+                <div class="row-form-layer-detail">
+
+                  <div class="column-input-form-detail">
+                    <nz-form-label nzFor="id">{{'RESERVATION.DETAIL.ID_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="id" type="text" placeholder="Id">
+                  </div>
+
+                  <div class="column-input-form-detail">
+                    <nz-form-label nzFor="name">{{'RESERVATION.DETAIL.STATUS_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="status" type="text"
+                           [placeholder]="'RESERVATION.DETAIL.STATUS_INPUT.PLACEHOLDER' | translate">
+                  </div>
+
+                </div>
+                <div class="row-form-layer-detail">
+
+                  <div class="column-input-form-detail">
+                    <nz-form-label nzFor="id">{{'RESERVATION.DETAIL.START_DATE.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="start_date" type="text" placeholder="Id"
+                           [placeholder]="'RESERVATION.DETAIL.START_DATE.PLACEHOLDER' | translate">
+                  </div>
+
+                  <div class="column-input-form-detail">
+                    <nz-form-label nzFor="name">{{'RESERVATION.DETAIL.END_DATE.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="end_date" type="text"
+                           [placeholder]="'RESERVATION.DETAIL.END_DATE.PLACEHOLDER' | translate">
+                  </div>
+
+                </div>
+              </form>
+            </ng-container>
+          </div>
+        </nz-tab>
+
+        <nz-tab [nzTitle]="'RESERVATION.DETAIL.CLIENTS_TAB' | translate">
+          <div style="flex: 1 1 auto;">
+            <app-table [data]="clientList" [headers]="clientListHeaders" [showPagination]="false"></app-table>
+          </div>
+        </nz-tab>
+
+      </nz-tabset>
+
+    </div>
+
+  </nz-spin>
+
+</div>
+
+<nz-modal [(nzVisible)]="isVisiblePrintKeyModal" nzCentered (nzOnCancel)="onCancelPrintKey()">
+  <ng-container *nzModalTitle>
+    {{ 'RESERVATION.DETAIL.PRINT_KEY_MODAL.TITLE' | translate }}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      {{ 'RESERVATION.DETAIL.PRINT_KEY_MODAL.DEVICE_INPUT.LABEL' | translate }}
+    </div>
+    <div style="margin-top: .2rem">
+      <nz-select [(ngModel)]="selectedDevice" style="width: 100%">
+        <nz-option *ngFor="let item of devices" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+      </nz-select>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: .4rem">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onAcceptPrintKey()">
+        {{ 'RESERVATION.DETAIL.PRINT_KEY_MODAL.ACCEPT_BUTTON' | translate }}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="onCancelPrintKey()">
+        {{ 'RESERVATION.DETAIL.PRINT_KEY_MODAL.CANCEL_BUTTON' | translate }}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>

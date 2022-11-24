@@ -1,0 +1,39 @@
+<div class="container-navbar">
+  <div class="content-navbar">
+    <div *ngIf="!globalVariablesService.hideSidebar">
+      <i nz-icon nzType="menu" class="sidebar-icon" (click)="onClickVisibleSidebar(true)"
+         *ngIf="!globalVariablesService.isVisibleSidebar"></i>
+      <i nz-icon nzType="menu" class="sidebar-icon" (click)="onClickVisibleSidebar(false)"
+         *ngIf="globalVariablesService.isVisibleSidebar"></i>
+    </div>
+    <div>
+      <img src="assets/logo-de-muestra.svg" style="width: auto; height: 50px;"/>
+    </div>
+    <div class="title">
+      Keibell
+    </div>
+    <div style="flex: 1 1 auto; min-width: 0;"></div>
+    <div class="user" *ngIf="authService.user">
+      <nz-avatar class="user-avatar" nzIcon="user" nz-dropdown [nzDropdownMenu]="userMenu"></nz-avatar>
+    </div>
+  </div>
+</div>
+
+<nz-dropdown-menu #userMenu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item class="dropdown-list-container" (click)="onClickProfile()">
+      <i nz-icon nzType="user" nzTheme="outline" class="dropdown-item-icon"></i>
+      <div class="dropdown-item-title">
+        {{ 'HEADER.USER_MENU.PROFILE' | translate }}
+      </div>
+    </li>
+    <li nz-menu-item class="dropdown-list-container" (click)="onClickLogout()">
+      <i nz-icon nzType="logout" nzTheme="outline" class="dropdown-item-icon"></i>
+      <div class="dropdown-item-title">
+        {{ 'HEADER.USER_MENU.LOGOUT' | translate }}
+      </div>
+    </li>
+  </ul>
+</nz-dropdown-menu>
+
+<app-profile-settings-modal></app-profile-settings-modal>

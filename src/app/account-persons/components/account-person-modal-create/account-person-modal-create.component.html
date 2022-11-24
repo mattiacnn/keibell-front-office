@@ -1,0 +1,82 @@
+<nz-modal [(nzVisible)]="isVisible" nzCentered [nzMaskClosable]="false" (nzOnCancel)="close()">
+  <ng-container *nzModalTitle>
+    {{'ACCOUNT_PERSON.CREATE_MODAL.TITLE' | translate}}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      <nz-spin [nzSpinning]="isLoading">
+        <form [formGroup]="formGroup" style="flex: 1 1 auto">
+
+          <div>
+            <div>
+              {{ 'ACCOUNT_PERSON.CREATE_MODAL.NAME_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="name" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PERSON.CREATE_MODAL.NAME_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PERSON.CREATE_MODAL.SURNAME_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="surname" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PERSON.CREATE_MODAL.SURNAME_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PERSON.CREATE_MODAL.EMAIL_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="email" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PERSON.CREATE_MODAL.EMAIL_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PERSON.CREATE_MODAL.PHONE_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="phone" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PERSON.CREATE_MODAL.PHONE_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PERSON.CREATE_MODAL.JOB_TITLE_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="job_title" style="margin-top: 3px;"
+              [placeholder]="'ACCOUNT_PERSON.CREATE_MODAL.JOB_TITLE_INPUT.PLACEHOLDER' | translate" />
+          </div>
+
+          <div style="margin-top: 10px;">
+            <div>
+              {{ 'ACCOUNT_PERSON.CREATE_MODAL.ROLES_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input style="margin-top: 3px;" (keyup.enter)="addRole($event)"
+              [placeholder]="'ACCOUNT_PERSON.CREATE_MODAL.ROLES_INPUT.PLACEHOLDER' | translate" />
+            <div style="margin-top: 3px;">
+              <nz-tag *ngFor="let item of formGroup.get('roles').value; let i = index" (nzOnClose)="removeRole(i)" nzMode="closeable">
+                {{item}}
+              </nz-tag>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <label nz-checkbox formControlName="invite">{{ 'ACCOUNT_PERSON.CREATE_MODAL.INVITE_INPUT.LABEL' | translate }}</label>
+          </div>
+
+        </form>
+      </nz-spin>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: 6px;">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onAcceptButton()" [disabled]="isLoading">
+        {{'ACCOUNT_PERSON.CREATE_MODAL.ACCEPT_BUTTON' | translate}}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="close()" [disabled]="isLoading">
+        {{'ACCOUNT_PERSON.CREATE_MODAL.CANCEL_BUTTON' | translate}}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>
+

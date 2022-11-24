@@ -1,0 +1,95 @@
+<div style="width: 100%; height: 100%; padding: 30px;">
+  <nz-spin [nzSpinning]="loading" style="height: 100%; width: 100%;" class="account-person-detail-spin">
+    <div style="flex: 0 0 auto; min-height: 0;">
+      <div class="page-title">
+        {{ 'ACCOUNT_PERSON.DETAIL.TITLE' | translate: {name: accountPerson.name} }}
+      </div>
+    </div>
+    <div style="flex: 1 1 auto; flex-direction: column; min-height: 0; display: flex; padding: 30px 0px 40px 0px;">
+      <div style="flex: 1 1 auto; min-height: 0;">
+        <ng-container *ngIf="formGroup">
+          <form [formGroup]="formGroup">
+
+            <div class="row-form-layer-detail">
+
+              <!-- Id -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="id">{{'ACCOUNT_PERSON.DETAIL.ID_INPUT.LABEL' | translate}}</nz-form-label>
+                <input nz-input formControlName="id" type="text" placeholder="Id">
+              </div>
+
+              <!-- Name -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="name">{{'ACCOUNT_PERSON.DETAIL.NAME_INPUT.LABEL' | translate}}</nz-form-label>
+                <input nz-input formControlName="name" type="text"
+                  [placeholder]="'ACCOUNT_PERSON.DETAIL.NAME_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+            </div>
+
+            <div class="row-form-layer-detail" style="margin-top: 10px;">
+
+              <!-- Surname -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="surname">{{'ACCOUNT_PERSON.DETAIL.SURNAME_INPUT.LABEL' | translate}}
+                </nz-form-label>
+                <input nz-input formControlName="surname" type="text"
+                  [placeholder]="'ACCOUNT_PERSON.DETAIL.SURNAME_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+              <!-- Job Title -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="job_title">{{'ACCOUNT_PERSON.DETAIL.JOB_TITLE_INPUT.LABEL' | translate}}
+                </nz-form-label>
+                <input nz-input formControlName="job_title" type="text"
+                  [placeholder]="'ACCOUNT_PERSON.DETAIL.JOB_TITLE_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+            </div>
+
+            <div class="row-form-layer-detail" style="margin-top: 10px;">
+
+              <!-- Email -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="email">{{'ACCOUNT_PERSON.DETAIL.EMAIL_INPUT.LABEL' | translate}}</nz-form-label>
+                <input nz-input formControlName="email" type="text"
+                  [placeholder]="'ACCOUNT_PERSON.DETAIL.EMAIL_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+              <!-- Phone -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="phone">{{'ACCOUNT_PERSON.DETAIL.PHONE_INPUT.LABEL' | translate}}</nz-form-label>
+                <input nz-input formControlName="phone" type="text"
+                  [placeholder]="'ACCOUNT_PERSON.DETAIL.PHONE_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+            </div>
+
+            <div class="row-form-layer-detail" style="margin-top: 10px;">
+
+              <!-- Roles -->
+              <div class="column-input-form-detail">
+                <nz-form-label nzFor="roles">{{'ACCOUNT_PERSON.DETAIL.ROLES_INPUT.LABEL' | translate}}</nz-form-label>
+                <nz-select nzMode="multiple" nzAllowClear style="width: 100%;" formControlName="roles" [nzPlaceHolder]="'ACCOUNT_PERSON.DETAIL.ROLES_INPUT.PLACEHOLDER' | translate">
+                  <nz-option nzLabel="admin" nzValue="admin"></nz-option>
+                  <nz-option nzLabel="owner" nzValue="owner"></nz-option>
+                  <nz-option nzLabel="attendant" nzValue="attendant"></nz-option>
+                </nz-select>
+              </div>
+
+            </div>
+
+          </form>
+        </ng-container>
+      </div>
+      <div style="flex: 0 0 auto; min-height: 0; display: flex; flex-direction: row-reverse; column-gap: 10px">
+        <button ejs-button class="buttons-ejs-button buttons-detail-account-persons" cssClass="e-primary" (click)="onModifyClick()">
+          {{ 'ACCOUNT_PERSON.DETAIL.MODIFY_BUTTON' | translate }}
+        </button>
+        <button ejs-button class="buttons-ejs-button buttons-detail-account-persons" cssClass="e-danger" (click)="onCancelClick()">
+          {{ 'ACCOUNT_PERSON.DETAIL.CANCEL_BUTTON' | translate }}
+        </button>
+      </div>
+    </div>
+  </nz-spin>
+</div>

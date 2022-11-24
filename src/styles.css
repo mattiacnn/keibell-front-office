@@ -1,0 +1,164 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  font-family: "Inter" !important;
+}
+
+.buttons-ejs-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-ejs-button:focus {
+  box-shadow: none !important;
+}
+
+.checkbox-ejs-button .e-frame {
+  box-shadow: none !important;
+}
+
+.row-form-layer-detail {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 10px;
+}
+
+.column-input-form-detail {
+  min-width: min(360px, 100%);
+  flex: 1 1 0px;
+}
+
+.ant-drawer-body {
+  padding: 0 !important;
+}
+
+.title-container-drawer-detail {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e7e7e7;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 0 0 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+nz-spin {
+  display: flex !important;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+}
+
+.ant-spin-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ant-spin-spinning {
+  max-height: none !important;
+}
+
+.input-error {
+  border-color: #ff0000 !important;
+}
+
+.input-error .ant-select-selector {
+  border-color: #ff0000 !important;
+}
+
+.input-error:hover {
+  border-color: #ff0000 !important;
+}
+
+.input-error:focus {
+  border-color: #ff0000 !important;
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2) !important;
+}
+
+:root {
+  /** primary **/
+  --primary-color-500: #3880ff;
+  --color-primary-rgb: 56, 128, 255;
+  --color-primary-contrast: #fff;
+  --color-primary-contrast-rgb: 255, 255, 255;
+  --color-primary-shade: #3171e0;
+  --color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --color-secondary: #3dc2ff;
+  --color-secondary-rgb: 61, 194, 255;
+  --color-secondary-contrast: #fff;
+  --color-secondary-contrast-rgb: 255, 255, 255;
+  --color-secondary-shade: #36abe0;
+  --color-secondary-tint: #50c8ff;
+
+  /** success **/
+  --color-success: #2dd36f;
+  --color-success-rgb: 45, 211, 111;
+  --color-success-contrast: #fff;
+  --color-success-contrast-rgb: 255, 255, 255;
+  --color-success-shade: #28ba62;
+  --color-success-tint: #42d77d;
+
+  /** warning **/
+  --color-warning: #ffc409;
+  --color-warning-rgb: 255, 196, 9;
+  --color-warning-contrast: #000;
+  --color-warning-contrast-rgb: 0, 0, 0;
+  --color-warning-shade: #e0ac08;
+  --color-warning-tint: #ffca22;
+
+  /** danger **/
+  --color-danger: #eb445a;
+  --color-danger-rgb: 235, 68, 90;
+  --color-danger-contrast: #fff;
+  --color-danger-contrast-rgb: 255, 255, 255;
+  --color-danger-shade: #cf3c4f;
+  --color-danger-tint: #ed576b;
+
+  /** dark **/
+  --color-dark: #222428;
+  --color-dark-rgb: 34, 36, 40;
+  --color-dark-contrast: #fff;
+  --color-dark-contrast-rgb: 255, 255, 255;
+  --color-dark-shade: #1e2023;
+  --color-dark-tint: #383a3e;
+
+  /** medium **/
+  --color-medium: #92949c;
+  --color-medium-rgb: 146, 148, 156;
+  --color-medium-contrast: #fff;
+  --color-medium-contrast-rgb: 255, 255, 255;
+  --color-medium-shade: #808289;
+  --color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --color-light: #f4f5f8;
+  --color-light-rgb: 244, 245, 248;
+  --color-light-contrast: #000;
+  --color-light-contrast-rgb: 0, 0, 0;
+  --color-light-shade: #d7d8da;
+  --color-light-tint: #f5f6f9;
+}
+
+.test {
+  background-color: var(--color-primary);
+}
+
+body {
+  font-size: 16px;
+}
+
+.page-title {
+  font-weight: 600;
+  font-size: 24px;
+}

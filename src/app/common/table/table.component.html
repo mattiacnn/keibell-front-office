@@ -1,0 +1,72 @@
+<nz-spin [nzSpinning]="loading" [nzIndicator]="indicatorTemplate" style="max-height: 100%; width: 100%;">
+  <div
+    style="display: flex; max-height: 100%; width: 100%; flex-direction: column;" [ngClass]="{'box-shadow-container': boxShadowContainer}">
+    <div class="toolbar" *ngIf="!removeToolbar">
+      <div class="buttons-container">
+        <button ejs-button class="buttons-table" [cssClass]="button.cssClass" *ngFor="let button of buttonsHeader"
+          [disabled]="isDisableButtonHeader(button)" (click)="clickButtonHeader(button)">
+          <i nz-icon [nzType]="button.nzTypeIcon" nzTheme="outline"></i>
+        </button>
+      </div>
+      <div style="flex: 1 1 auto"></div>
+      <div class="pagination-container" *ngIf="showPagination">
+        <div>
+          {{ 'TABLE.PAGINATION.VIEWING' | translate }}
+        </div>
+        <div style="margin-left: 8px;">
+          <nz-select [(ngModel)]="paginationIndex" style="width: 130px;" (ngModelChange)="changePageIndexEvent($event)">
+            <nz-option [nzValue]="i" [nzLabel]="item" *ngFor="let item of paginationOptions; let i = index"></nz-option>
+          </nz-select>
+        </div>
+        <div style="margin-left: 8px;">
+          {{ 'TABLE.PAGINATION.OF' | translate }}
+        </div>
+        <div style="margin-left: 8px;">
+          <nz-select [(ngModel)]="pageSize" (ngModelChange)="changePageSizeEvent($event)" style="width: 80px;">
+            <nz-option [nzValue]="item.value" [nzLabel]="item.label" *ngFor="let item of pageSizeOptions"></nz-option>
+          </nz-select>
+        </div>
+        <div style="margin-left: 10px;" class="arrow-change-page"
+          [ngClass]="{'arrow-change-page-disabled': paginationIndex <= 0}">
+          <i nz-icon nzType="left" nzTheme="outline" (click)="previousPage()"></i>
+        </div>
+        <div style="margin-left: 5px;" class="arrow-change-page"
+          [ngClass]="{'arrow-change-page-disabled': (paginationIndex + 1) >= totalPages}">
+          <i nz-icon nzType="right" nzTheme="outline" (click)="nextPage()"></i>
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1 1 auto; min-height: 0; display: flex">
+      <nz-table #basicTable [nzData]="data" [nzFrontPagination]="false" [nzPageSize]="pageSize" style="flex: 1 1 auto; min-height: 0; display: flex">
+        <thead>
+          <tr>
+            <th [nzWidth]="'70px'" *ngIf="canCheckItem || canCheckAll">
+              <ejs-checkbox [checked]="true" *ngIf="canCheckAll" class="checkbox-ejs-button"></ejs-checkbox>
+            </th>
+            <th *ngFor="let header of headers">{{header.name | translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of basicTable.data">
+            <td *ngIf="canCheckItem">
+              <ejs-checkbox [checked]="true" (click)="onCheckItem(item, false)" cssClass="checkbox-ejs-button"
+                *ngIf="isChekedItem(item)"></ejs-checkbox>
+              <ejs-checkbox [checked]="false" (click)="onCheckItem(item, true)" cssClass="checkbox-ejs-button"
+                *ngIf="!isChekedItem(item)"></ejs-checkbox>
+            </td>
+            <td *ngFor="let header of headers" [ngStyle]="{'cursor': clickItemEventAviable ? 'pointer' : 'default'}"
+              (click)="onClickItem(item)">
+              {{ item[header.variable] }}
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</nz-spin>
+
+<ng-template #indicatorTemplate>
+  <div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center;">
+    <i nz-icon nzType="loading" style="font-size: 3rem;"></i>
+  </div>
+</ng-template>

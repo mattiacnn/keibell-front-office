@@ -1,0 +1,260 @@
+<nz-drawer [nzBodyStyle]="{background:'#e7e7eb'}" class="drawer" [nzClosable]="false" [nzVisible]="isVisible"
+           nzPlacement="right" (nzOnClose)="close()" [nzWidth]="1100">
+  <ng-container *nzDrawerContent>
+    <nz-spin [nzSpinning]="isLoading">
+      <div class="drawerContainer2">
+        <div style="background-color: white; padding:20px; display: flex">
+          <h2 class="title">{{ this.resourceName }}</h2>
+          <div style="flex: 1 1 auto"></div>
+          <div>
+            <div style="flex: 0 0 auto">
+              <button style="margin-right: .7rem;" ejs-button class="buttons-ejs-button" cssClass="e-primary" [disabled]="disabledOpenDoor"
+                      (click)="onOpenDoorClick()">
+                {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_BUTTON' | translate }}
+              </button>
+            </div>
+          </div>
+          <div>
+            <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onDetailClick()">
+              {{ 'RESERVATION.SLIDE.DETAIL_BUTTON' | translate }}
+            </button>
+          </div>
+        </div>
+        <nz-tabset [nzTabBarStyle]="{background: 'white', paddingLeft:'20px'}">
+          <nz-tab [nzTitle]="'RESERVATION.SLIDE.STATUS_TAB.TITLE' | translate" nzForceRender>
+            <div class="main" style="padding: 20px;">
+              <div class="left-col">
+                <div class="section-box">
+                  <p class="section-title">{{'RESERVATION.SLIDE.STATUS_TAB.CLIENT_SECTION_TITLE' | translate}}</p>
+                  <app-table [showPagination]="false" [data]="clientData"
+                             [headers]="[{name: 'RESERVATION.SLIDE.STATUS_TAB.NAME_TH', variable:'name'}, {name: 'RESERVATION.SLIDE.STATUS_TAB.SURNAME_TH', variable:'surname'}]"
+                             [removeToolbar]="true" [boxShadowContainer]="false">
+                  </app-table>
+                </div>
+
+                <div class="section-box">
+                  <p class="section-title">Spaces</p>
+                  <nz-table #spacesTable [nzData]="dataSet2" [nzFrontPagination]="false">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Space</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of spacesTable.data">
+                      <td>{{data.name}}</td>
+                      <td>
+                        <button nz-button nzType="default">{{data.spaceName}}</button>
+                      </td>
+                      <td>
+                        <button nz-button nzType="default" nzDanger>Dirty</button>
+                      </td>
+                      <td>
+                        <button nz-button nzType="default">Make inspected</button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </nz-table>
+                </div>
+
+                <div class="section-box">
+                  <p class="section-title">Undo check-in</p>
+                  <div class="undo-row">
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a reason" style="width: 100%">
+                      <nz-option nzValue="jack" nzLabel="Reason number 1"></nz-option>
+                      <nz-option nzValue="lucy" nzLabel="Reason number 2"></nz-option>
+                    </nz-select>
+                    <div style="margin-left: 10px">
+                      <button nz-button nzType="primary">Undo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 10px" class="right-col">
+                <nz-list style="border:none;" nzBordered nzFooter="">
+                  <p class="section-title">{{ 'RESERVATION.SLIDE.RESERVATION_SECTION_TITLE.TITLE' | translate }}</p>
+
+                  <nz-list-item *ngFor="let item of reservationData">
+                    <span nz-typography>{{item.label | translate}}</span>
+                    {{reservation[item.variable]}}
+                  </nz-list-item>
+                </nz-list>
+
+              </div>
+            </div>
+          </nz-tab>
+
+          <nz-tab [nzTitle]="'RESERVATION.SLIDE.KEYS_TAB.TITLE' | translate" nzForceRender>
+            <div class="main" style="padding: 20px;">
+              <div class="left-col">
+                <div class="section-box">
+                  <p class="section-title">Keys emitted</p>
+                  <nz-table #basicTable3 [nzData]="keyData" [nzFrontPagination]="false">
+                    <thead>
+                    <tr>
+                      <th>Surname</th>
+                      <th>Type</th>
+                      <th>Created</th>
+                      <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of basicTable3.data">
+                      <td>{{data.name}}</td>
+                      <td>{{data.surname}}</td>
+                      <td>{{data.type}}</td>
+                      <td>{{data.created}}</td>
+                      <td>{{data.status}}</td>
+                    </tr>
+                    </tbody>
+                  </nz-table>
+                </div>
+
+                <div class="section-box">
+                  <p class="section-title">{{ 'RESERVATION.SLIDE.KEYS_TAB.CREATE_KEY_TITLE' | translate }}</p>
+                  <nz-table #spacesTable4 [nzData]="devicesData" [nzFrontPagination]="false">
+                    <thead>
+                    <tr>
+                      <th>{{ 'RESERVATION.SLIDE.KEYS_TAB.DEVICE_TH' | translate }}</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of spacesTable4.data">
+                      <td>{{ data.name }}</td>
+                      <td>
+                        <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="printKey(data)">
+                          {{ 'RESERVATION.SLIDE.KEYS_TAB.PRINT_KEY' | translate }}
+                        </button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </nz-table>
+                </div>
+
+                <div class="section-box">
+                  <p class="section-title">Disable a key</p>
+                  <div class="undo-row">
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a reason" style="width: 100%">
+                      <nz-option nzValue="jack" nzLabel="Key 1 (Mattia Cannavò)"></nz-option>
+                      <nz-option nzValue="lucy" nzLabel="Key 2 (Jim Green)"></nz-option>
+                    </nz-select>
+                    <div style="margin-left: 10px">
+                      <button nz-button nzType="primary">Disable</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 10px" class="right-col">
+
+                <nz-list style="border:none;" nzBordered nzFooter="">
+                  <p class="section-title">{{ 'RESERVATION.SLIDE.RESERVATION_SECTION_TITLE.TITLE' | translate }}</p>
+
+                  <nz-list-item *ngFor="let item of reservationData">
+                    <span nz-typography>{{item.label | translate}}</span>
+                    {{reservation[item.variable]}}
+                  </nz-list-item>
+                </nz-list>
+              </div>
+            </div>
+          </nz-tab>
+
+          <nz-tab [nzTitle]="'RESERVATION.SLIDE.CONVERSATIONS_TAB.TITLE' | translate" style="position: relative"
+                  nzForceRender>
+
+            <nz-input-group style="position: fixed; bottom:0; width: 1100px;" nzSearch nzSize="large"
+                            [nzAddOnAfter]="suffixButton">
+              <input type="text" nz-input placeholder="Type a message"/>
+            </nz-input-group>
+            <ng-template #suffixButton>
+              <button nz-button nzType="primary" nzSize="large" nzSearch>Send</button>
+            </ng-template>
+
+            <div class="conversation-wrap">
+              <div class="message-wrap">
+                <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+                <div class="message received">
+                  Hello, how are you?
+                  <p class="time-message">
+                    10:34
+                  </p>
+                </div>
+              </div>
+              <div class="message-wrap sent-wrap">
+                <div class="message sent">
+                  Hello, welcome to tusity one! How can I help you?
+                  <p class="time-message">
+                    10:34
+                  </p>
+                </div>
+                <nz-avatar nzIcon="user"></nz-avatar>
+              </div>
+
+              <div class="message-wrap">
+                <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+                <div class="message received">
+                  For letter type Avaar, when the letters are too long to display, the font size can be automatically
+                  adjusted according to the width of the Avatar.
+
+                  <p class="time-message">
+                    10:34
+                  </p>
+                </div>
+              </div>
+              <div class="message-wrap">
+                <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+                <div class="message received">
+                  are too long to display, the font size can be automatically
+                  <p class="time-message">
+                    10:34
+                  </p>
+                </div>
+              </div>
+
+              <div class="message-wrap sent-wrap">
+                <div class="message sent">
+                  Image, Icon and letter are supported, and the latter two kinds avatar can have custom colors and
+                  background colors.
+                  <p class="time-message">
+                    10:34
+                  </p>
+                </div>
+                <nz-avatar nzIcon="user"></nz-avatar>
+              </div>
+            </div>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-drawer>
+
+
+<nz-modal [(nzVisible)]="isVisibleModalOpenDoor" nzCentered (nzOnCancel)="closeModalOpenDoor()">
+  <ng-container *nzModalTitle>
+    {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.TITLE' | translate }}
+  </ng-container>
+  <ng-container *nzModalContent>
+    <div>
+      {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.NAME_INPUT.LABEL' | translate:{name: nameResource} }}
+    </div>
+    <div style="margin-top: 0.4rem">
+      <input nz-input [placeholder]="'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.NAME_INPUT.PLACEHOLDER' | translate"
+             [(ngModel)]="nameResourceOpenDoorInput" (keyup.enter)="acceptModalOpenDoor()"/>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div style="display: flex; flex-direction: row-reverse; column-gap: .4rem">
+      <button ejs-button class="buttons-ejs-button" cssClass="e-primary" [disabled]="isDisabledAcceptOpenDoor()"
+              (click)="acceptModalOpenDoor()">
+        {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.ACCEPT_BUTTON' | translate }}
+      </button>
+      <button ejs-button class="buttons-ejs-button" cssClass="e-danger" (click)="closeModalOpenDoor()">
+        {{ 'PROPERTY_RESOURCE.DETAIL.OPEN_DOOR_MODAL.CANCEL_BUTTON' | translate }}
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>

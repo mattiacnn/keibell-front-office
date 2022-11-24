@@ -1,0 +1,38 @@
+<nz-modal [nzVisible]="isVisible" nzCentered [nzClosable]="false" [nzMaskClosable]=" false" [nzFooter]="null">
+  <ng-container *nzModalContent>
+    <nz-spin [nzSpinning]="loading">
+      <div style="display:flex; flex-direction: column">
+        <div style="display: flex; align-items: center">
+          <i nz-icon nzType="arrow-left" nzTheme="outline" style="font-size: 1.3rem; cursor: pointer"
+             (click)="onClickBackButton()" *ngIf="isVisibleBackButton"></i>
+          <div style="font-size: 1.5rem; font-weight: 600; margin-left: .6rem">
+            {{ 'FORGOT_PASSWORD.TITLE' | translate }}
+          </div>
+        </div>
+        <div style="margin-top: 1.2rem">
+          <form [formGroup]="formGroup" *ngIf="formGroup" (keyup.enter)="onClickAccept()">
+
+            <div>
+              <div style="font-weight: 600; font-size: 1rem">{{ 'FORGOT_PASSWORD.EMAIL_INPUT.LABEL' | translate }}</div>
+              <input nz-input nzSize="large" style="margin-top: .2rem" formControlName="email"
+                     [ngClass]="{'input-error': getMessageEmailError() && firstAttempt}"/>
+              <div class="message-error" *ngIf="firstAttempt">
+                <div *ngFor="let item of getMessageEmailError()">{{ item | translate }}</div>
+              </div>
+            </div>
+          </form>
+          <div style="display: flex; margin-top: 1.3rem; flex-direction: row-reverse">
+            <button ejs-button style="font-size: 1rem" cssClass="e-primary" (click)="onClickAccept()"
+                    [disabled]="!formGroup.valid && firstAttempt">
+              {{ 'FORGOT_PASSWORD.ACCEPT_BUTTON' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-modal>
+
+<app-modal-info [isVisible]="isVisibleModalInfo" [iconType]="iconTypeModalInfo" [iconTheme]="iconThemeModalInfo"
+                [iconTwotoneColor]="iconTwotoneColor" [title]="titleModalInfo"
+                [content]="contentModalInfo"></app-modal-info>

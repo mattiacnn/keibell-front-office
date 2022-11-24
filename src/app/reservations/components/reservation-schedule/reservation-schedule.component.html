@@ -1,0 +1,55 @@
+<ejs-schedule #scheduleObj class="schedule" style="height: 100%"
+              locale='es'
+              [currentView]="currentView" [group]="group" [workDays]="workDays"
+              (actionComplete)="onActionComplete($event)"
+              [eventSettings]="eventSettings" (eventRendered)="onEventRendered($event)"
+              (actionBegin)="onActionBegin($event)" [allowDragAndDrop]='false' [allowResizing]='false'
+              (renderCell)="onRenderCell($event)" (popupOpen)="onPopupOpen($event)">
+  <e-resources>
+    <e-resource field='RoomId' title='Room Type' [dataSource]='resourceDataSource' [allowMultiple]='allowMultiple'
+                name='MeetingRoom' textField='text' idField='id' colorField='color'></e-resource>
+  </e-resources>
+  <e-views>
+    <e-view option="TimelineMonth"></e-view>
+  </e-views>
+  <ng-template #headerIndentTemplate let-data>
+    <div class='template-wrap' style="display: flex; width: 100%; height: 100%">
+      <div style="width: 50%; display: flex; align-items: center; justify-content: center; border-right: 1px solid #e5e7eb">
+        <div>
+          {{ 'RESERVATION.TIMELINE.ROOM_TH' | translate }}
+        </div>
+      </div>
+      <div style="width: 50%; display: flex; align-items: center; justify-content: center">
+        <div>
+          {{ 'RESERVATION.TIMELINE.CATEGORY_TH' | translate }}
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #resourceHeaderTemplate let-data>
+    <div class='template-wrap' style="display: flex; width: 100%; height: 100%">
+      <div style="width: 50%; display: flex; align-items: center; justify-content: center; border-right: 1px solid #e5e7eb">
+        <div>
+          {{data.resourceData.name}}
+        </div>
+      </div>
+      <div style="width: 50%; display: flex; align-items: center; justify-content: center">
+        <div>
+          {{data.resourceData.category}}
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #cellTemplate let-data>
+    <div style="height: 100%;">
+
+    </div>
+  </ng-template>
+  <ng-template #eventSettingsTemplate let-data>
+    <div class='appointment-container'>
+      <div class="appointment-title">{{data.customer_surname}}</div>
+    </div>
+  </ng-template>
+</ejs-schedule>
+
+<app-reservation-slide></app-reservation-slide>

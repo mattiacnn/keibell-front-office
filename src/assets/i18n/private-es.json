@@ -1,0 +1,589 @@
+{
+  "LANGUAGES": {
+    "SPANISH": "Español",
+    "ENGLISH": "Ingles"
+  },
+  "PREFERENCES_MODAL": {
+    "TITLE": "Perfil",
+    "PROFILE": {
+      "TITLE": "Perfil",
+      "CHANGE_PASSWORD_TITLE": "Cambiar contraseña",
+      "SAVE_PASSWORD_BUTTON": "Guardar contraseña",
+      "NEW_PASSWORD_INPUT": {
+        "LABEL": "Nueva contraseña:",
+        "PLACEHOLDER": "Nueva contraseña."
+      },
+      "REPEAT_PASSWORD_INPUT": {
+        "LABEL": "Repetir contraseña:",
+        "PLACEHOLDER": "Repetir contraseña.",
+        "NOT_EQUAL_ERROR": "No coinciden las contraseñas."
+      },
+      "ERROR_SAVE_PASSWORD_MODAL": {
+        "TITLE": "Error",
+        "CONTENT": "Ha ocurrido un error al interntar guardar la contraseña"
+      }
+    },
+    "LANGUAGES": {
+      "TITLE": "Idiomas",
+      "LANGUAGE_TITLE": "Cambiar idioma",
+      "LANGUAGES_INPUT": {
+        "LABEL": "Idioma",
+        "PLACEHOLDER": "Idioma"
+      }
+    }
+  },
+  "SIDEBAR": {
+    "SUBMENUS": {
+      "TEST": "Menu Prueba"
+    },
+    "ITEMS": {
+      "RESERVATION": "Reservas",
+      "ACCOUNT": "Cuentas",
+      "KIOSK_ACTIVATION": "Activación de Quioscos",
+      "DASHBOARD": "Dashboard"
+    }
+  },
+  "HEADER": {
+    "USER_MENU": {
+      "LOGOUT": "Cerrar sesión",
+      "PROFILE": "Perfil"
+    }
+  },
+  "TABLE": {
+    "PAGINATION": {
+      "VIEWING": "Viendo",
+      "OF": "de"
+    }
+  },
+  "LOGIN": {
+    "TITLE": "Iniciar sesión",
+    "FORGOT_PASSWORD": "¿Has olvidado la contraseña?",
+    "LOGIN_BUTTON": "Iniciar sesión",
+    "ERROR_MODAL_INFO": {
+      "UNKNOWN_ERROR": {
+        "TITLE": "Error",
+        "CONTENT": "Ha ocurrido un error al intentar iniciar sesión. Por favor intentelo de nuevo."
+      }
+    },
+    "EMAIL_INPUT": {
+      "LABEL": "Email",
+      "EMPTY_ERROR": "Debes introducir el email."
+    },
+    "PASSWORD_INPUT": {
+      "LABEL": "Contraseña",
+      "EMPTY_ERROR": "Debes introducir la contraseña."
+    }
+  },
+  "FORGOT_PASSWORD": {
+    "TITLE": "Recuperar contraseña",
+    "ACCEPT_BUTTON": "Aceptar",
+    "EMAIL_INPUT": {
+      "LABEL": "Email"
+    },
+    "CONFIRM_MODAL_INFO": {
+      "TITLE": "Recuperar contraseña",
+      "CONTENT": "Se ha enviado un correo electronico para poder recuperar la contraseña. Por favor, revise su email."
+    },
+    "ERROR_MODAL_INFO": {
+      "TITLE": "Error",
+      "CONTENT": "Ha occurido un error. Por favor, revise el email."
+    }
+  },
+  "CHANGE_PWD": {
+    "CHANGE_PASSWORD": "Cambiar contraseña",
+    "ACCEPT_BUTTON": "Aceptar",
+    "INVITATION_MODAL_ERROR": {
+      "TITLE": "Error",
+      "CONTENT": "La invitación no es válida o a caducado."
+    },
+    "CHANGE_PWD_MODAL_ERROR": {
+      "TITLE": "Error",
+      "CONTENT": "Ha ocurrido un error al intentar crear la contraseña."
+    },
+    "NEW_PASSWORD_INPUT": {
+      "LABEL": "Nueva contraseña",
+      "PLACEHOLDER": "Nueva contraseña",
+      "EMPTY_ERROR": "Debes introducir la contraseña",
+      "PASSWORD_NOT_MATCH_ERROR": "Las contraseñas no coinciden"
+    },
+    "CONFIRM_PASSWORD_INPUT": {
+      "LABEL": "Confirmar contraseña",
+      "PLACEHOLDER": "Confirmar contraseña",
+      "EMPTY_ERROR": "Debes introducir la contraseña",
+      "PASSWORD_NOT_MATCH_ERROR": "Las contraseñas no coinciden"
+    }
+  },
+  "ACCOUNT": {
+    "BROWSER": {
+      "TITLE": "Cuentas",
+      "TABLE": {
+        "NAME_TH": "Nombre"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Cuenta - {{name}}",
+      "GENERAL_TAB": "General",
+      "PERSONS_TAB": {
+        "TITLE": "Personal",
+        "NAME_TH": "Nombre",
+        "SURNAME_TH": "Apellidos",
+        "EMAIL_TH": "E-mail"
+      },
+      "PROPERTIES_TAB": {
+        "TITLE": "Propiedades",
+        "NAME_TH": "Nombre",
+        "PMS_TYPE_TH": "Tipo de PMS"
+      },
+      "KIOSKS_TAB": {
+        "TITLE": "Quioscos",
+        "NAME_TH": "Nombre"
+      },
+      "ID_INPUT": {
+        "LABEL": "Id"
+      },
+      "NAME_INPUT": {
+        "LABEL": "Nombre",
+        "PLACEHOLDER": "Nombre"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Descripción",
+        "PLACEHOLDER": "Descripción"
+      },
+      "MODIFY_BUTTON": "Modificar",
+      "CANCEL_BUTTON": "Cancelar"
+    },
+    "SLIDE": {
+      "DETAIL_BUTTON": "Detalle",
+      "MODIFY_BUTTON": "Modificar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Descripción:",
+        "PLACEHOLDER": "Descripción"
+      }
+    },
+    "CREATE_MODAL": {
+      "TITLE": "Crear cuenta",
+      "ACCEPT_BUTTON": "Aceptar",
+      "CANCEL_BUTTON": "Cancelar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Descripción:",
+        "PLACEHOLDER": "Descripción"
+      }
+    }
+  },
+  "ACCOUNT_PERSON": {
+    "SLIDE": {
+      "DETAIL_BUTTON": "Detalle",
+      "MODIFY_BUTTON": "Modificar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "SURNAME_INPUT": {
+        "LABEL": "Apellidos:",
+        "PLACEHOLDER": "Apellidos"
+      },
+      "EMAIL_INPUT": {
+        "LABEL": "Email:",
+        "PLACEHOLDER": "Email"
+      },
+      "PHONE_INPUT": {
+        "LABEL": "Nº telefono:",
+        "PLACEHOLDER": "Nº telefono"
+      },
+      "JOB_TITLE_INPUT": {
+        "LABEL": "Puesto de trabajo:",
+        "PLACEHOLDER": "Puesto de trabajo"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Empleado - {{name}}",
+      "CANCEL_BUTTON": "Cancelar",
+      "MODIFY_BUTTON": "Modificar",
+      "ID_INPUT": {
+        "LABEL": "Id",
+        "PLACEHOLDER": "Id"
+      },
+      "NAME_INPUT": {
+        "LABEL": "Nombre",
+        "PLACEHOLDER": "Nombre"
+      },
+      "SURNAME_INPUT": {
+        "LABEL": "Apellidos",
+        "PLACEHOLDER": "Apellidos"
+      },
+      "JOB_TITLE_INPUT": {
+        "LABEL": "Puesto de trabajo",
+        "PLACEHOLDER": "Puesto de trabajo"
+      },
+      "EMAIL_INPUT": {
+        "LABEL": "Email",
+        "PLACEHOLDER": "Email"
+      },
+      "PHONE_INPUT": {
+        "LABEL": "Nº telefono",
+        "PLACEHOLDER": "Nº telefono"
+      },
+      "ROLES_INPUT": {
+        "LABEL": "Roles",
+        "PLACEHOLDER": "Roles"
+      }
+    },
+    "CREATE_MODAL": {
+      "TITLE": "Crear empleado",
+      "ACCEPT_BUTTON": "Aceptar",
+      "CANCEL_BUTTON": "Cancelar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "SURNAME_INPUT": {
+        "LABEL": "Apellidos:",
+        "PLACEHOLDER": "Apellidos"
+      },
+      "EMAIL_INPUT": {
+        "LABEL": "Email:",
+        "PLACEHOLDER": "E-mail"
+      },
+      "PHONE_INPUT": {
+        "LABEL": "Nº telefono:",
+        "PLACEHOLDER": "Nº telefono"
+      },
+      "JOB_TITLE_INPUT": {
+        "LABEL": "Puesto de trabajo:",
+        "PLACEHOLDER": "Puesto de trabajo"
+      },
+      "ROLES_INPUT": {
+        "LABEL": "Roles:",
+        "PLACEHOLDER": "Roles"
+      },
+      "INVITE_INPUT": {
+        "LABEL": "Invitar"
+      }
+    }
+  },
+  "ACCOUNT_PROPERTY": {
+    "CREATE_MODAL": {
+      "TITLE": "Crear propiedad",
+      "ACCEPT_BUTTON": "Aceptar",
+      "CANCEL_BUTTON": "Cancelar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre",
+        "PLACEHOLDER": "Nombre"
+      },
+      "PMS_TYPE_INPUT": {
+        "LABEL": "Tipo de PMS",
+        "PLACEHOLDER": "Tipo de PMS"
+      },
+      "PMS_CONNECTION_CLIENT_TOKEN_INPUT": {
+        "LABEL": "Token del cliente (Conexión PMS)",
+        "PLACEHOLDER": "Token del cliente (Conexión PMS)"
+      },
+      "PMS_CONNECTION_ACCESS_TOKEN_INPUT": {
+        "LABEL": "Token de acceso (Conexión PMS)",
+        "PLACEHOLDER": "Token de acceso (Conexión PMS)"
+      },
+      "LOCK_TECH_INPUT": {
+        "LABEL": "Tipo de tecnología de cerradura",
+        "PLACEHOLDER": "Tipo de tecnología de cerradura"
+      },
+      "LOCK_TECH_CONNECTION_HOST_INPUT": {
+        "LABEL": "Host (Conexión tecnología cerradura)",
+        "PLACEHOLDER": "Host (Conexión tecnología cerradura)"
+      },
+      "LOCK_TECH_CONNECTION_PORT_INPUT": {
+        "LABEL": "Puerto (Conexión tecnología cerradura)",
+        "PLACEHOLDER": "Puerto (Conexión tecnología cerradura)"
+      }
+    },
+    "SLIDE": {
+      "DETAIL_BUTTON": "Detalle",
+      "MODIFY_BUTTON": "Modificar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "PMS_TYPE_INPUT": {
+        "LABEL": "Tipo de PMS:",
+        "PLACEHOLDER": "Tipo de PMS"
+      },
+      "PMS_CONNECTION_CLIENT_TOKEN_INPUT": {
+        "LABEL": "Token del cliente (Conexión PMS):",
+        "PLACEHOLDER": "Token del cliente (Conexión PMS)"
+      },
+      "PMS_CONNECTION_ACCESS_TOKEN_INPUT": {
+        "LABEL": "Token de acceso (Conexión PMS):",
+        "PLACEHOLDER": "Token de acceso (Conexión PMS)"
+      },
+      "LOCK_TECH_INPUT": {
+        "LABEL": "Tipo de tecnología de cerradura:",
+        "PLACEHOLDER": "Tipo de tecnología de cerradura"
+      },
+      "LOCK_TECH_CONNECTION_HOST_INPUT": {
+        "LABEL": "Host (Conexión tecnología cerradura):",
+        "PLACEHOLDER": "Host (Conexión tecnología cerradura)"
+      },
+      "LOCK_TECH_CONNECTION_PORT_INPUT": {
+        "LABEL": "Puerto (Conexión tecnología cerradura):",
+        "PLACEHOLDER": "Puerto (Conexión tecnología cerradura)"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Propiedad - {{name}}",
+      "GENERAL_TAB": "General",
+      "RESOURCES_TAB": "Habitaciones",
+      "CUSTOMER_TAB": "Clientes",
+      "RESERVATION_TAB": "Reservas",
+      "CANCEL_BUTTON": "Cancelar",
+      "MODIFY_BUTTON": "Modificar",
+      "RESOURCE_TABLE_HEADER": {
+        "NAME_TH": "Nombre",
+        "STATUS_TH": "Estado"
+      },
+      "CUSTOMER_TABLE_HEADER": {
+        "NAME_TH": "Nombre",
+        "SURNAME_TH": "Apellidos",
+        "EMAIL_TH": "Email"
+      },
+      "RESERVATION_TABLE_HEADER": {
+        "CUSTOMER_EMAIL_TH": "Email del cliente",
+        "RESOURCE_TH": "Habitación",
+        "START_DATE_TH": "Fecha de inicio",
+        "END_DATE_TH": "Fecha de salida"
+      },
+      "ID_INPUT": {
+        "LABEL": "Id"
+      },
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "PMS_TYPE_INPUT": {
+        "LABEL": "Tipo de PMS",
+        "PLACEHOLDER": "Tipo de PMS"
+      },
+      "PMS_CONNECTION_CLIENT_TOKEN_INPUT": {
+        "LABEL": "Token del cliente (Conexión PMS)",
+        "PLACEHOLDER": "Token del cliente (Conexión PMS)"
+      },
+      "PMS_CONNECTION_ACCESS_TOKEN_INPUT": {
+        "LABEL": "Token de acceso (Conexión PMS)",
+        "PLACEHOLDER": "Token de acceso (Conexión PMS)"
+      },
+      "LOCK_TECH_INPUT": {
+        "LABEL": "Tipo de tecnología de cerradura",
+        "PLACEHOLDER": "Tipo de tecnología de cerradura"
+      },
+      "LOCK_TECH_CONNECTION_HOST_INPUT": {
+        "LABEL": "Host (Conexión tecnología cerradura)",
+        "PLACEHOLDER": "Host (Conexión tecnología cerradura)"
+      },
+      "LOCK_TECH_CONNECTION_PORT_INPUT": {
+        "LABEL": "Puerto (Conexión tecnología cerradura)",
+        "PLACEHOLDER": "Puerto (Conexión tecnología cerradura)"
+      }
+    }
+  },
+  "PROPERTY_RESOURCE": {
+    "SLIDE": {
+      "DETAIL_BUTTON": "Detalle",
+      "SUBTITLE_DATA": "Datos",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:"
+      },
+      "STATUS_INPUT": {
+        "LABEL": "Estado:"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Habitación - {{name}}",
+      "OPEN_DOOR_BUTTON": "Abrir puerta",
+      "OPEN_DOOR_MODAL": {
+        "TITLE": "Abrir puerta",
+        "ACCEPT_BUTTON": "Aceptar",
+        "CANCEL_BUTTON": "Cancelar",
+        "NAME_INPUT": {
+          "LABEL": "Introduzca la palabra '{{name}}':",
+          "PLACEHOLDER": "Nombre de la habitación"
+        }
+      },
+      "ID_INPUT": {
+        "LABEL": "Id"
+      },
+      "NAME_INPUT": {
+        "LABEL": "Nombre"
+      }
+    }
+  },
+  "ACCOUNT_KIOSK": {
+    "SLIDE": {
+      "DETAIL_BUTTON": "Detalle",
+      "MODIFY_BUTTON": "Modificar",
+      "DATA_TITLE": "Datos",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Descripción:",
+        "PLACEHOLDER": "Descripción"
+      }
+    },
+    "CREATE_MODAL": {
+      "TITLE": "Crear Quiosco",
+      "ACCEPT_BUTTON": "Aceptar",
+      "CANCEL_BUTTON": "Cancelar",
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Descripción:",
+        "PLACEHOLDER": "Descripción"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Quiosco - {{ name }}",
+      "MODIFY_BUTTON": "Modificar",
+      "CANCEL_BUTTON": "Cancelar",
+      "ID_INPUT": {
+        "LABEL": "Id"
+      },
+      "NAME_INPUT": {
+        "LABEL": "Nombre",
+        "PLACEHOLDER": "Nombre"
+      },
+      "DESCRIPTION_INPUT": {
+        "LABEL": "Descripción",
+        "PLACEHOLDER": "Descripción"
+      }
+    }
+  },
+  "PROPERTY_CUSTOMER": {
+    "SLIDE": {
+      "NAME_INPUT": {
+        "LABEL": "Nombre:",
+        "PLACEHOLDER": "Nombre"
+      },
+      "SURNAME_INPUT": {
+        "LABEL": "Apellidos:",
+        "PLACEHOLDER": "Apellidos"
+      },
+      "EMAIL_INPUT": {
+        "LABEL": "Email:",
+        "PLACEHOLDER": "Email"
+      },
+      "PHONE_INPUT": {
+        "LABEL": "Teléfono:",
+        "PLACEHOLDER": "Telefono"
+      }
+    }
+  },
+  "RESERVATION": {
+    "BROWSER": {
+      "PROPERTY_INPUT": {
+        "LABEL": "Propiedad:",
+        "PLACEHOLDER": "Seleccione la propiedad"
+      },
+      "ACCOUNT_INPUT": {
+        "LABEL": "Cuenta:",
+        "PLACEHOLDER": "Seleccione la cuenta"
+      }
+    },
+    "TIMELINE": {
+      "ROOM_TH": "Habitaciones",
+      "CATEGORY_TH": "Categoría"
+    },
+    "SLIDE": {
+      "DETAIL_BUTTON": "Detalle",
+      "RESERVATION_SECTION_TITLE": {
+        "TITLE": "Detalle de reserva",
+        "START_DATE": "Fecha inicio",
+        "END_DATE": "Fecha fin",
+        "STATUS": "Estado"
+      },
+      "STATUS_TAB": {
+        "TITLE": "Estado",
+        "CLIENT_SECTION_TITLE": "Clientes",
+        "NAME_TH": "Nombre",
+        "SURNAME_TH": "Apellidos"
+      },
+      "KEYS_TAB": {
+        "TITLE": "Llaves",
+        "DEVICE_TH": "Dispositivo",
+        "CREATE_KEY_TITLE": "Crear llave",
+        "PRINT_KEY": "Imprimir llave"
+      },
+      "CONVERSATIONS_TAB": {
+        "TITLE": "Conversaciones"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Reserva",
+      "GENERAL_TAB": "General",
+      "CLIENTS_TAB": "Clientes",
+      "PRINT_KEY": "Imprimir llave",
+      "CLIENTS_TABLE": {
+        "NAME_TH": "Nombre",
+        "SURNAME_TH": "Apellidos"
+      },
+      "PRINT_KEY_MODAL": {
+        "TITLE": "Imprimir llave",
+        "ACCEPT_BUTTON": "Aceptar",
+        "CANCEL_BUTTON": "Cancelar",
+        "DEVICE_INPUT": {
+          "LABEL": "Dispositivo:"
+        }
+      },
+      "ID_INPUT": {
+        "LABEL": "Id"
+      },
+      "STATUS_INPUT": {
+        "LABEL": "Estado",
+        "PLACEHOLDER": "Estado"
+      },
+      "START_DATE": {
+        "LABEL": "Fecha de entrada",
+        "PLACEHOLDER": "Fecha de entrada"
+      },
+      "END_DATE": {
+        "LABEL": "Fecha de salida",
+        "PLACEHOLDER": "Fecha de salida"
+      }
+    }
+  },
+  "KIOSK": {
+    "BROWSER_ACTIVATION": {
+      "TITLE": "Activación de Quioscos",
+      "TABLE": {
+        "NAME_TH": "Nombre"
+      }
+    },
+    "ACTIVATE_MODAL": {
+      "TITLE": "Activación quiosco",
+      "ACCEPT_BUTTON": "Aceptar",
+      "CANCEL_BUTTON": "Cancelar",
+      "KIOSK_ID_INPUT": {
+        "LABEL": "Quiosco pendiente de activar:",
+        "PLACEHOLDER": "Quiosco pendiente de activar",
+        "EMPTY_ERROR": "Debes introducir un valor en este campo."
+      },
+      "KBL_KIOSK_UUID": {
+        "LABEL": "Quiosco Keibell:",
+        "PLACEHOLDER": "Quiosco Keibell",
+        "EMPTY_ERROR": "Debes introducir un valor en este campo."
+      },
+      "MODAL_ERROR": {
+        "TITLE": "Error",
+        "CONTENT_UNKNOWN": "Ha ocurrido un error."
+      }
+    }
+  }
+}

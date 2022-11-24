@@ -1,0 +1,227 @@
+.dashboard-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  padding: 2em;
+}
+
+.graph-container {
+  background-color: white;
+  padding: 1em;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+  border: none;
+  max-height: 250px;
+}
+.message-body {
+  max-width: 80%;
+}
+.small-card {
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+  border: none;
+  width: 100%;
+  height: 160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5rem;
+  align-items: center;
+}
+
+.small-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+.sub-line {
+  background-color: #d2d2d2;
+  width: 60px;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.icon-badge {
+  background-color: #000000d9;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 17px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.detail {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.detail:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.icon-badge img {
+  height: 28px;
+  width: auto;
+}
+
+.legendContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.legendRow {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.legendRow p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.legendBg {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+.counter {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000d9;
+}
+
+.rooms {
+  background-color: white;
+  padding: 2em;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+  border: none;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.room {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: solid 1px #d2d2d2;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+.conversation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: solid 1px #d2d2d2;
+  padding-bottom: 10px;
+  margin-top: 15px;
+}
+.conversations {
+  background-color: white;
+  padding: 2em;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+  border: none;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+
+.switch {
+  height: 30px !important;
+  width: 80px !important;
+}
+
+.room-name {
+  margin: 0 !important;
+}
+
+.link-btn {
+  color: #000000d9;
+  text-decoration: underline;
+  transition: all 0.8s ease-in-out;
+  z-index: 99;
+}
+
+.link-btn:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.rooms-container {
+  margin-bottom: 30px;
+}
+.btn-row-rooms{
+  display: flex;
+  flex-direction: row;
+}
+.btn-row-rooms .details-btn{
+  margin-left: 10px;
+}
+.e-switch-wrapper .e-switch-on,
+.e-css.e-switch-wrapper .e-switch-on {
+  background-color: #f9c151 !important;
+}
+
+.rooms::after {
+  content: '';
+  display: block;
+  background-color: #f9c151;
+  height: 90px;
+  width: 91px;
+  position: absolute;
+  top: 0;
+  border-bottom-left-radius: 200px;
+  opacity: 0.6;
+  right: 0px;
+  transition: all 0.8s ease-in-out;
+}
+.conversations::after {
+  content: '';
+  display: block;
+  background-color: #f9c151;
+  height: 90px;
+  width: 91px;
+  position: absolute;
+  bottom: 0;
+  border-top-right-radius: 200px;
+  opacity: 0.6;
+  left: 0px;
+  z-index: 1;
+  transition: all 0.8s ease-in-out;
+}
+
+.conversations:hover::after{
+  transform: scale(1.1) translateX(2px);
+}
+.conversations:hover{
+  border: solid 1px #f9c151;
+}
+.rooms:hover::after{
+  transform: scale(1.1) translateX(-2px);
+}
+.rooms:hover{
+  border: solid 1px #f9c151;
+}

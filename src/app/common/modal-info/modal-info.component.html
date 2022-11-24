@@ -1,0 +1,17 @@
+<nz-modal nzCentered [nzVisible]="isVisible" [nzFooter]="null" [nzClosable]="closable" [nzMaskClosable]="closable" (nzOnCancel)="close()">
+  <ng-container *nzModalContent>
+    <div style="display: flex; column-gap: 1rem; padding: 1rem 0rem 1rem 0rem">
+      <div style="flex: 0 0 auto; min-width: 0">
+        <i nz-icon [nzType]="iconType" [nzTheme]="iconTheme" [nzTwotoneColor]="iconTwotoneColor" style="font-size: 2rem"></i>
+      </div>
+      <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column">
+        <div style="font-size: 1.2rem; font-weight: 500">
+          {{ title | translate }}
+        </div>
+        <div style="font-size: 1rem; margin-top: .6rem">
+          {{ content | translate }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</nz-modal>

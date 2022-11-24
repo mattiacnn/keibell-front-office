@@ -1,0 +1,11 @@
+{
+  "verbose": true,
+  "watch": [
+    "src"
+  ],
+  "ext": "*",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "exec": "ng build --configuration production --aot && python -m http.server 4201 --directory dist/hoteleir"
+}

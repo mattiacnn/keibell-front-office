@@ -1,0 +1,43 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column; row-gap: 20px; padding: 30px;">
+
+  <nz-spin [nzSpinning]="loading" style="height: 100%; width: 100%;" class="account-spin-detail">
+
+    <div style="flex: 0 0 auto;">
+      <div class="page-title">
+        {{ 'ACCOUNT.DETAIL.TITLE' | translate: {name: key.name} }}
+      </div>
+    </div>
+
+    <div style="flex: 1 1 auto; padding: 30px 0px 40px 0px; display: flex; flex-direction: column; min-height: 0;">
+
+      <nz-tabset style="height: 100%" class="tabset-detail-account" [nzSelectedIndex]="3">
+
+        <nz-tab [nzTitle]="'ACCOUNT.DETAIL.GENERAL_TAB' | translate">
+
+
+          <div style="flex: 0 0 auto; display: flex; justify-content: flex-end; column-gap: 10px;">
+            <button ejs-button class="buttons-ejs-button buttons-detail-accounts" cssClass="e-danger"
+              (click)="onCancelClick()">
+              {{ 'ACCOUNT.DETAIL.CANCEL_BUTTON' | translate }}
+            </button>
+            <button ejs-button class="buttons-ejs-button buttons-detail-accounts" cssClass="e-primary"
+              (click)="onAcceptClickUpdate()">
+              {{ 'ACCOUNT.DETAIL.MODIFY_BUTTON' | translate }}
+            </button>
+          </div>
+
+        </nz-tab>
+
+        <nz-tab [nzTitle]="'ACCOUNT.DETAIL.PERSONS_TAB.TITLE' | translate" [nzForceRender]="true">
+          <div style="flex: 1 1 auto;">
+            <app-table [data]="personsList" [headers]="headersPersonsTab" #tablePersonsAccountDetail
+              [buttonsHeader]="buttonsHeaderPersonsTab" (clickItemEvent)="onClickPersonTable($event)"
+              [clickItemEventAviable]="true" [canCheckItem]="true"
+              (updatePaginationEvent)="updatePaginationEventPersons($event)"></app-table>
+          </div>
+        </nz-tab>
+      </nz-tabset>
+    </div>
+  </nz-spin>
+
+</div>

@@ -1,0 +1,118 @@
+:root {
+  --reservation-browse-cells-width: 0px;
+  --reservation-browse-cells-height: 0px;
+}
+
+.schedule {
+  max-height: 100% !important;
+  max-width: 100% !important;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.e-resource-left-td {
+  background-color: #f3f4f6 !important;
+  font-weight: bold !important;
+  display: flex;
+  width: 300px !important;
+  height: 39px;
+  align-items: center;
+  flex: 0 0 auto
+}
+
+.schedule > .e-table-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule > .e-table-container > .e-table-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.e-schedule-table.e-outer-table {
+  flex: 1 1 auto;
+  display: block;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.e-schedule-table.e-outer-table > tbody {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.e-schedule-table.e-outer-table > tbody > tr {
+  display: flex;
+}
+
+.e-schedule-table.e-outer-table > tbody > tr:nth-child(2) {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.e-schedule-table.e-outer-table > tbody > tr:nth-child(2) > td:nth-child(1) {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.e-schedule-table.e-outer-table > tbody > tr:nth-child(2) > td:nth-child(2) {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+td:has(> .e-resource-column-wrap) {
+  width: 300px !important;
+}
+
+.e-resource-cells {
+  padding: 0 !important;
+}
+
+.e-resource-cells.e-child-node {
+  width: 300px;
+  background-color: #f3f4f6 !important;
+  height: var(--reservation-browse-cells-height) !important;
+}
+
+
+.e-date-header-container > .e-date-header-wrap > .e-schedule-table > colgroup > col {
+  width: var(--reservation-browse-cells-width) !important;
+}
+
+
+.e-schedule-table.e-content-table > colgroup > col {
+  width: var(--reservation-browse-cells-width) !important;
+}
+
+.e-work-cells {
+  height: var(--reservation-browse-cells-height) !important;
+}
+
+.e-resource-column-wrap {
+  height: 100% !important;
+}
+
+.appointment-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appointment-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  min-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,153 @@
+<div style="height: 100%; width: 100%; display: flex; flex-direction: column; row-gap: 20px; padding: 30px;">
+
+  <nz-spin [nzSpinning]="loading" style="height: 100%; width: 100%;" class="account-spin-detail">
+
+    <div style="flex: 0 0 auto;">
+      <div class="page-title">
+        {{ 'ACCOUNT_PROPERTY.DETAIL.TITLE' | translate: {name: name} }}
+      </div>
+    </div>
+
+    <div style="flex: 1 1 auto; padding: 30px 0px 40px 0px; display: flex; flex-direction: column; min-height: 0;">
+      <nz-tabset style="height: 100%" class="tabset-detail" [nzSelectedIndex]="1">
+
+        <nz-tab [nzTitle]="'ACCOUNT_PROPERTY.DETAIL.GENERAL_TAB' | translate">
+          <div style="flex: 1 1 auto;">
+            <ng-container *ngIf="generalFormGroup">
+              <form [formGroup]="generalFormGroup">
+
+                <div class="row-form-layer-detail">
+
+                  <!-- Id -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label nzFor="id">{{'ACCOUNT_PROPERTY.DETAIL.ID_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="id" type="text" placeholder="Id">
+                  </div>
+
+                  <!-- Name -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.NAME_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="name" type="text"
+                           [placeholder]="'ACCOUNT_PROPERTY.DETAIL.NAME_INPUT.PLACEHOLDER' | translate">
+                  </div>
+                </div>
+
+                <div class="row-form-layer-detail">
+
+                  <!-- PMS_TYPE -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.PMS_TYPE_INPUT.LABEL' | translate}}</nz-form-label>
+                    <nz-select [nzPlaceHolder]="'ACCOUNT_PROPERTY.DETAIL.PMS_TYPE_INPUT.PLACEHOLDER' | translate"
+                               style="width: 100%" formControlName="pms_type">
+                      <nz-option nzValue="mews" nzLabel="mews"></nz-option>
+                    </nz-select>
+                  </div>
+
+                  <!-- LOCK_TECH -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.LOCK_TECH_INPUT.LABEL' | translate}}</nz-form-label>
+                    <nz-select [nzPlaceHolder]="'ACCOUNT_PROPERTY.DETAIL.LOCK_TECH_INPUT.PLACEHOLDER' | translate"
+                               style="width: 100%" formControlName="lock_tech">
+                      <nz-option nzValue="salto_single" nzLabel="salto_single"></nz-option>
+                    </nz-select>
+                  </div>
+
+                </div>
+
+                <div class="row-form-layer-detail">
+
+                  <!-- PMS_CONNECTION_CLIENT_TOKEN_INPUT -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.PMS_CONNECTION_CLIENT_TOKEN_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="pms_connection_ClientToken" type="text"
+                           [placeholder]="'ACCOUNT_PROPERTY.DETAIL.PMS_CONNECTION_CLIENT_TOKEN_INPUT.PLACEHOLDER' | translate">
+                  </div>
+
+                  <!-- PMS_CONNECTION_CLIENT_TOKEN_INPUT -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.PMS_CONNECTION_ACCESS_TOKEN_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="pms_connection_AccessToken" type="text"
+                           [placeholder]="'ACCOUNT_PROPERTY.DETAIL.PMS_CONNECTION_ACCESS_TOKEN_INPUT.PLACEHOLDER' | translate">
+                  </div>
+
+                </div>
+
+                <div class="row-form-layer-detail">
+
+                  <!-- LOCK_TECH_CONNECTION_HOST -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.LOCK_TECH_CONNECTION_HOST_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="lock_tech_connection_host" type="text"
+                           [placeholder]="'ACCOUNT_PROPERTY.DETAIL.LOCK_TECH_CONNECTION_HOST_INPUT.PLACEHOLDER' | translate">
+                  </div>
+
+                  <!-- LOCK_TECH_CONNECTION_PORT -->
+                  <div class="column-input-form-detail">
+                    <nz-form-label
+                      nzFor="name">{{'ACCOUNT_PROPERTY.DETAIL.LOCK_TECH_CONNECTION_PORT_INPUT.LABEL' | translate}}</nz-form-label>
+                    <input nz-input formControlName="lock_tech_connection_port" type="text"
+                           [placeholder]="'ACCOUNT_PROPERTY.DETAIL.LOCK_TECH_CONNECTION_PORT_INPUT.PLACEHOLDER' | translate">
+                  </div>
+
+                </div>
+
+              </form>
+            </ng-container>
+          </div>
+
+          <div style="flex: 0 0 auto; display: flex; justify-content: flex-end; column-gap: 10px;">
+            <button ejs-button class="buttons-ejs-button buttons-detail-accounts" cssClass="e-danger"
+                    (click)="onCancelClickGeneral()">
+              {{ 'ACCOUNT_PROPERTY.DETAIL.CANCEL_BUTTON' | translate }}
+            </button>
+            <button ejs-button class="buttons-ejs-button buttons-detail-accounts" cssClass="e-primary"
+                    (click)="onModifyClickGeneral()">
+              {{ 'ACCOUNT_PROPERTY.DETAIL.MODIFY_BUTTON' | translate }}
+            </button>
+          </div>
+
+        </nz-tab>
+
+        <nz-tab [nzTitle]="'ACCOUNT_PROPERTY.DETAIL.RESOURCES_TAB' | translate">
+          <app-table [data]="resourcesList" [headers]="headersResourcesTab" #tableAccountPropertyResource
+                     [clickItemEventAviable]="true"
+                     [buttonsHeader]="buttonsHeaderResourcesTab" style="height: 100%"
+                     (clickItemEvent)="onClickResourceTableItem($event)"
+                     (updatePaginationEvent)="updatePaginationEventResource($event)"></app-table>
+        </nz-tab>
+
+        <nz-tab [nzTitle]="'ACCOUNT_PROPERTY.DETAIL.CUSTOMER_TAB' | translate">
+
+          <div style="flex: 1 1 auto;">
+            <app-table [data]="customersList" [headers]="headersCustomersTab" #tableAccountPropertyCustomer
+                       [buttonsHeader]="buttonsHeaderCustomerTab" (clickItemEvent)="onClickCustomerTable($event)"
+                       [clickItemEventAviable]="true" style="height: 100%"
+                       (updatePaginationEvent)="updatePaginationEventCustomer($event)"></app-table>
+          </div>
+
+        </nz-tab>
+
+        <nz-tab [nzTitle]="'ACCOUNT_PROPERTY.DETAIL.RESERVATION_TAB' | translate">
+          <app-table [data]="reservationList" [headers]="headersReservationTable" #tableAccountPropertyReservation
+                     [buttonsHeader]="buttonsHeaderReservationTable"
+                     (clickItemEvent)="onClickReservationTableItem($event)"
+                     [clickItemEventAviable]="true" style="height: 100%"
+                     (updatePaginationEvent)="updatePaginationEventReservation($event)"></app-table>
+        </nz-tab>
+
+      </nz-tabset>
+    </div>
+
+  </nz-spin>
+
+</div>
+
+<app-property-customer-slide></app-property-customer-slide>
+<app-reservation-slide></app-reservation-slide>
+<app-property-resources-slide></app-property-resources-slide>

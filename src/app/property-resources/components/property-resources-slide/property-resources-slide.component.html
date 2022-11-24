@@ -1,0 +1,50 @@
+<nz-drawer [nzClosable]="false" [nzVisible]="isVisible" nzPlacement="right" (nzOnClose)="close()" [nzWidth]="900">
+  <ng-container *nzDrawerContent>
+    <nz-spin [nzSpinning]="loading" style="height: 100%; width: 100%;" class="right-drawer-spin">
+      <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
+
+        <div class="title-container-drawer-detail">
+          <div style="flex: 0 0 auto; min-width: 0;">{{ name }}</div>
+          <div style="flex: 1 1 auto; min-width: 0;"></div>
+          <button ejs-button class="buttons-ejs-button" cssClass="e-primary" (click)="onDetailClick()">
+            {{ 'PROPERTY_RESOURCE.SLIDE.DETAIL_BUTTON' | translate }}
+          </button>
+          <i nz-icon nzType="close" nzTheme="outline" (click)="close()"
+             style="margin-left: 12px; flex: 0 0 auto; min-width: 0; font-size: 1.2rem; cursor: pointer;"></i>
+        </div>
+
+        <div
+          style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: auto; padding: 24px;">
+
+          <div style="font-size: 1rem; font-weight: 700; margin-bottom: 20px; flex: 0 0 auto; min-height: 0;">
+            {{ 'PROPERTY_RESOURCE.SLIDE.SUBTITLE_DATA' | translate }}
+          </div>
+
+          <form [formGroup]="formGroup" style="flex: 1 1 auto; min-height: 0;" *ngIf="formGroup">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
+
+              <div style="display: flex; column-gap: 3px; align-items: center;">
+                <div style="flex: 0 0 auto; min-width: 0;">
+                  {{ 'PROPERTY_RESOURCE.SLIDE.NAME_INPUT.LABEL' | translate }}
+                </div>
+                <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="name"
+                       [placeholder]="'PROPERTY_RESOURCE.SLIDE.NAME_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+              <div style="display: flex; column-gap: 3px; align-items: center;">
+                <div style="flex: 0 0 auto; min-width: 0;">
+                  {{ 'PROPERTY_RESOURCE.SLIDE.STATUS_INPUT.LABEL' | translate }}
+                </div>
+                <input nz-input style="flex: 1 1 auto; min-width: 0;" formControlName="status"
+                       [placeholder]="'PROPERTY_RESOURCE.SLIDE.STATUS_INPUT.PLACEHOLDER' | translate">
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </nz-spin>
+  </ng-container>
+</nz-drawer>

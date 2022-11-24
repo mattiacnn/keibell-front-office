@@ -1,0 +1,58 @@
+<nz-modal [(nzVisible)]="isVisible" nzCentered [nzMaskClosable]="false" (nzOnCancel)="close()">
+
+  <ng-container *nzModalTitle>
+    {{ 'KIOSK.ACTIVATE_MODAL.TITLE' | translate }}
+  </ng-container>
+
+  <ng-container *nzModalContent>
+    <div>
+      <nz-spin [nzSpinning]="isLoading">
+
+        <form [formGroup]="formGroup" style="flex: 1 1 auto" (keyup.enter)="onAccept()" *ngIf="formGroup">
+
+          <div>
+            <div>
+              {{ 'KIOSK.ACTIVATE_MODAL.KIOSK_ID_INPUT.LABEL' | translate }}
+            </div>
+            <input nz-input formControlName="kiosk_id" style="margin-top: 3px;"
+                   [ngClass]="{'input-error': getKioskIdMessageError()}"
+                   [placeholder]="'KIOSK.ACTIVATE_MODAL.KIOSK_ID_INPUT.PLACEHOLDER' | translate"/>
+            <div class="message-error">
+              <div *ngFor="let item of getKioskIdMessageError()">{{ item | translate }}</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem">
+            <div>
+              {{ 'KIOSK.ACTIVATE_MODAL.KBL_KIOSK_UUID.LABEL' | translate }}
+            </div>
+            <nz-select [ngClass]="{'input-error': getKblKioskUuidMessageError()}" style="width: 100%"
+                       [nzPlaceHolder]="'KIOSK.ACTIVATE_MODAL.KBL_KIOSK_UUID.PLACEHOLDER'| translate"
+                       formControlName="kbl_kiosk_uuid">
+              <nz-option *ngFor="let item of kblKioskListOption" [nzValue]="item.value"
+                         [nzLabel]="item.label"></nz-option>
+            </nz-select>
+            <div class="message-error">
+              <div *ngFor="let item of getKblKioskUuidMessageError()">{{ item | translate }}</div>
+            </div>
+          </div>
+
+
+        </form>
+
+      </nz-spin>
+    </div>
+  </ng-container>
+
+  <ng-container *nzModalFooter>
+    <button ejs-button style="margin-right: .4rem" cssClass="e-danger" (click)="close()">
+      {{ 'KIOSK.ACTIVATE_MODAL.CANCEL_BUTTON' | translate }}
+    </button>
+    <button ejs-button cssClass="e-primary" (click)="onAccept()"
+            [disabled]="!formGroup.valid || isLoading">
+      {{ 'KIOSK.ACTIVATE_MODAL.ACCEPT_BUTTON' | translate }}
+    </button>
+  </ng-container>
+
+
+</nz-modal>

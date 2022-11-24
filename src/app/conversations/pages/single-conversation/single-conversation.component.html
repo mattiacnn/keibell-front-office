@@ -1,0 +1,152 @@
+<section class="single-conversation-page-wrapper">
+  <div class="conversation-col" style="display: flex; flex-direction:column;padding: 30px;gap:20px; flex:1;background-color: white;">
+
+    <div>
+      <p class="label">Priority</p>
+      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Assign priority" style="width: 100%">
+        <nz-option nzValue="" nzLabel="High"></nz-option>
+        <nz-option nzValue="" nzLabel="Medium"></nz-option>
+        <nz-option nzValue="" nzLabel="Low"></nz-option>
+      </nz-select>
+    </div>
+
+    <div>
+      <p class="label">Tags</p>
+      <nz-select nzMode="tags" [nzTokenSeparators]="[',']" nzPlaceHolder="Add a tag to the conversation"
+        style="width: 100%">
+      </nz-select>
+    </div>
+
+    <div class="section-box">
+      <p class="section-title">Guests:</p>
+      <nz-table #basicTable [nzData]="guests" [nzFrontPagination]="false">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birthday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{data.name}}</td>
+            <td>{{data.surname}}</td>
+            <td>{{data.birthday}}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <div style="margin-top: 10px">
+
+      <nz-list style="border:none;" nzBordered nzFooter="">
+        <p class="section-title">Reservation details:</p>
+
+        <nz-list-item *ngFor="let item of reservationData">
+          <span nz-typography>{{item.label}}</span>
+          {{item.data}}
+        </nz-list-item>
+      </nz-list>
+
+    </div>
+  </div>
+  <div class="conversation-col" style="background-color: white;border-left: solid 1px #DADADA;flex:2">
+    <nz-page-header class="site-page-header" nzBackIcon nzTitle="Conversation with Mattia Cannavò"
+      nzSubtitle="Via Whatsapp #F2342">
+      <nz-divider nzType="horizontal"></nz-divider>
+    </nz-page-header>
+    <div class="conversation-wrap">
+      <div class="message-wrap">
+        <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+        <div class="message received">
+          Hello, how are you?
+          <p class="time-message">
+            10:34
+          </p>
+        </div>
+      </div>
+      <div class="message-wrap sent-wrap">
+        <div class="message sent">
+          Hello, welcome to tusity one! How can I help you?
+          <p class="time-message">
+            10:34
+          </p>
+        </div>
+        <nz-avatar nzIcon="user"></nz-avatar>
+      </div>
+
+      <div class="message-wrap">
+        <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+        <div class="message received">
+          For letter type Avaar, when the letters are too long to display, the font size can be automatically
+          adjusted according to the width of the Avatar.
+
+          <p class="time-message">
+            10:34
+          </p>
+        </div>
+      </div>
+      <div class="message-wrap">
+        <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+        <div class="message received">
+          are too long to display, the font size can be automatically
+          <p class="time-message">
+            10:34
+          </p>
+        </div>
+      </div>
+
+      <div class="message-wrap sent-wrap">
+        <div class="message sent">
+          Image, Icon and letter are supported, and the latter two kinds avatar can have custom colors and
+          background colors.
+          <p class="time-message">
+            10:34
+          </p>
+        </div>
+        <nz-avatar nzIcon="user"></nz-avatar>
+      </div>
+    </div>
+
+    <nz-input-group style="position: absolute; bottom:0; width: 100%;" nzSearch nzSize="large"
+      [nzAddOnAfter]="suffixButton">
+      <input type="text" nz-input placeholder="Type a message" />
+    </nz-input-group>
+    <ng-template #suffixButton>
+      <button nz-button nzType="primary" nzSize="large" nzSearch>Send</button>
+    </ng-template>
+  </div>
+  <div class="conversation-col profile"
+    style="background-color: white; border-left: solid 1px #DADADA;padding: 30px;flex:1">
+    <div class="profile-widget">
+      <div class="profile-row" style="display: flex; flex-direction:row;align-items:center;gap: 10px;">
+        <nz-avatar nzIcon="user" style="background-color:#87d068;"></nz-avatar>
+        <h4>Mattia Cannavò</h4>
+      </div>
+      <div class="profile-data-container">
+        <div class="profile-data-row">
+          <span nz-icon nzType="mail" nzTheme="outline"></span>
+          <p>mattiacannavo08@gmail.com</p>
+        </div>
+        <div class="profile-data-row">
+          <span nz-icon nzType="phone" nzTheme="outline"></span>
+          <p>+39 3286687228</p>
+        </div>
+        <div class="profile-data-row">
+          <span nz-icon nzType="question" nzTheme="outline"></span>
+          <p>Italy</p>
+        </div>
+        <textarea rows="4" nz-input placeholder="Add a note"></textarea>
+      </div>
+    </div>
+
+    <nz-page-header class="site-page-header" nzTitle="Interactions">
+    </nz-page-header>
+    <nz-steps [nzCurrent]="3" nzDirection="vertical">
+      <nz-step nzTitle="Booked a reservation" nzDescription="25/04/2022."></nz-step>
+      <nz-step nzTitle="Made the check-in online" nzDescription="31/08/2022."></nz-step>
+      <nz-step nzTitle="Wrote a message" nzDescription="1/09/2022."></nz-step>
+    </nz-steps>
+
+
+  </div>
+</section>
